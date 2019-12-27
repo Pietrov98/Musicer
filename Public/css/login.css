@@ -27,6 +27,7 @@ form {
     height: 50%;
     outline: none;
     margin-right: 50px;
+    text-align: center;
 }
 
 
@@ -55,7 +56,6 @@ form {
     background: none;
     border:none;
 }
-
 
 ::placeholder
 {

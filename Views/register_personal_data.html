@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>muziker</title>
+    <link rel="stylesheet" type="text/css" href="../Public/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../Public/css/register_personal_data.css" />
+</head>
+<body>
+<div class="container">
+    <form>
+        Imię<br/>
+        <input name="name" type="text">
+        Nazwisko<br/>
+        <input name="surname" type="text">
+        Hasło
+        <input name="password" type="text">
+        Zdjęcie profilowe<br/>
+        <button class="photo" type="submit>">Prześlij zdjęcie</button>
+        Data Urodzenia<br/>
+        <div class="date">
+            <input name="day" type="text" placeholder="DD">
+            <input name="month" type="text" placeholder="MM">
+            <input name="year" type="text" placeholder="YYYY">
+        </div>
+        <div class="gender">
+            <input type="radio" name="action" id="male" value="male" />Mężczyzna<br />
+            <input type="radio" name="action" id="female" value="female"  />Kobieta<br />
+        </div>
+        <button class="next_button">Ostatni krok...</button>
+    </form>
+
+    <div class="footage">
+        PODZIEL SIĘ TYM CO POTRAFISZ
+    </div>
+    <div class="logo">
+        Musicer
+    </div>
+    <div class="login">
+        <button type="submit" onclick="window.location.href='login_form.html'">ZALOGUJ SIĘ</button>
+    </div>
+</div>
+</body>
+</html>

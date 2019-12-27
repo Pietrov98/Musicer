@@ -1,0 +1,53 @@
+.container {
+    text-align: center;
+}
+
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 10%;
+    width: 30%;
+    height: 50%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 10px;
+    text-align: center;
+    font: Bold 30px/40px Malgun Gothic;
+    color: #000000;
+}
+
+form >input {
+    padding-bottom: 5px;
+    margin-left: 15%;
+    margin-top: 5px;
+    text-align: center;
+    background: #0606064D 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    height: 10%;
+    width: 70%;
+}
+
+.regulation {
+    text-align: center;
+    font-size: 12px;
+    line-height: 10px;
+    margin-top:10px;
+}
+
+.button_next {
+    background: #02020282 0% 0% no-repeat padding-box;
+    border: 5px solid #FFFFFF;
+    margin-top: 30px;
+    height: 60px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #FFFAFA;
+    font-size: 20px;
+    outline:none;
+}
+
+.button_next:hover {
+    opacity: 80%;
+}

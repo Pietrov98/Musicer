@@ -1,0 +1,82 @@
+.container {
+    text-align: center;
+}
+
+form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 7%;
+    width: 30%;
+    height: 80%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 10px;
+    text-align: center;
+    font: Bold 30px/40px Malgun Gothic;
+    color: #000000;
+}
+
+form > input {
+    padding-bottom: 5px;
+    margin-left: 15%;
+    margin-top: 5px;
+    text-align: center;
+    background: #0606064D 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    height: 5%;
+    width: 70%;
+}
+
+.photo {
+    margin-left:15%;
+    width: 70%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background: #0606064D 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    outline: none;
+    height: 50px;
+    font: Bold 10px/13px Malgun Gothic;
+    letter-spacing: 0;
+    color: #000000;
+    font-size: 50%;
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+}
+
+.date > input {
+    margin-top: 10px;
+    text-align: center;
+    background: #0606064D 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    width: 25%;
+    height:25px;
+    margin-left: 5%;
+}
+
+.gender {
+    margin-top:20px;
+    margin-left:25%;
+    display: flex;
+    flex-direction: row;
+    font-size:20px;
+}
+
+.next_button {
+    height: 50px;
+    background: #02020282 0% 0% no-repeat padding-box;
+    border: 5px solid #FFFFFF;
+    border-radius: 44px;
+    text-align: center;
+    font: Bold 19px/26px Malgun Gothic;
+    letter-spacing: 0;
+    color: #FFFAFA;
+    outline: none;
+}
