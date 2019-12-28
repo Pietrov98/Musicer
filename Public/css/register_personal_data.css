@@ -80,3 +80,7 @@ form > input {
     color: #FFFAFA;
     outline: none;
 }
+
+.next_button:hover {
+    opacity: 80%;
+}
