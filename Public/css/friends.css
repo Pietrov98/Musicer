@@ -1,0 +1,103 @@
+.container {
+    background-image: url("../img/friends_background.png");
+}
+
+.friends_container {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF96 0% 0% no-repeat padding-box;
+    text-align: left;
+}
+
+.friends_searcher{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 10%;
+    background: black;
+    opacity: 50%;
+    top: 0;
+
+}
+
+.friends_searcher > button {
+    margin-top: 5px;
+    width: 13%;
+    height: 45%;
+    margin-left: 75%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 16px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    outline: none;
+
+}
+
+.searcher{
+    width: 30%;
+    margin-left: 75%;
+    display: flex;
+    flex-direction: row;
+}
+
+.searcher > input {
+    width: 50%;
+}
+
+.searcher > button {
+    background-color: DodgerBlue; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    font-size: 20px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    outline: none;
+}
+
+h3 {
+    font: Bold 40px/54px Malgun Gothic;
+    color: #000000;
+    line-height: 0;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+button:hover {
+    opacity: 80%;
+}
+
+.friends_list {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.friend > button {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.friend {
+    display: block;
+    width: 20%;
+    float:left;
+    text-align: center;
+
+}
+
+.friend > button > img {
+    width: 100px;
+    height: 100px;
+}
+
+p {
+    font: Bold 25px/33px Malgun Gothic;
+    letter-spacing: 0;
+    color: #000000;
+    font-size: 1em;
+    margin-top: 0;
+}

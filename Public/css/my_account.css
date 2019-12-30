@@ -1,96 +1,15 @@
-body {
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-}
-
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: inherit;
-    align-items: center;
     background-image: url('my_account_img.png');
-}
-
-.upper_container {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    background: #00000057 0% 0% no-repeat padding-box;
-    width: 100%;
-    height: 20%;
-    top: 0%;
-    color: white;
-}
-
-.logo {
-    position: relative;
-    top: 25%;
-    left: 5%;
-    text-align: center;
-    font: Bold 51px/61px Magneto;
-    color: #FFFAFA;
-    filter: blur(undefined);
-}
-
-.right_upper_container {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    left: 62%;
-    height: 100%;
-    top: 0%;
-}
-
-.right_upper_container > div{
-    margin-left: 10px;
-}
-
-.photo {
-    position: relative;
-    display: block;
-    background-image: url("my_photo.png");
-    width: 70px;
-    height: 70px;
-    top: 25%;
-}
-
-.nickname {
-    position: relative;
-    top: 40%;
-    font-family: Trebuchet MS;
-    font-size: 1.3em;
-    color: #FFFFFF;
-}
-
-.menu {
-    position: relative;
-    top: 0%;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 30px;
-    margin-left: 20px;
-    outline: 0;
-}
-
-.menu:hover {
-    opacity: 80%;
 }
 
 .user_information {
     position: fixed;
     display: flex;
     flex-direction: column;
-    top: 25%;
-    left:30%;
+    top: 15%;
+    left:35%;
     width: 30%;
-    height:70%;
+    height:80%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
     text-align: center;
@@ -107,7 +26,7 @@ body {
 
 .main_photo {
     background-repeat: no-repeat;
-    background-image: url("main_photo.png");
+    background-image: url("../img/main_photo.png");
     width: 150px;
     height: 150px;
 }
@@ -123,14 +42,68 @@ body {
 .music {
     text-align: left;
     margin-left: 22px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .band_photo {
     background-repeat: no-repeat;
-    background-image: url("band_logo.png");
+    background-image: url("../../Views/band_logo.png");
     width: 150px;
     height: 150px;
     text-align: center;
     margin-left: 18%;
+}
+
+.description {
+    width: 80%;
+    height: 20%;
+    margin-left: 10%;
+    background: #0606064D 0% 0% no-repeat padding-box;
+    border: 1px solid #FFF8F8;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.bottom_informations {
+    height: 15%;
+    width: 80%;
+    text-align: left;
+    margin-left:15px;
+    margin-top:10px;
+}
+
+.record_panel {
+    height: 20%;
+    width: 50%;
+    background: #000000 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 21px;
+    margin-top: 10px;
+}
+
+.play{
+    background: none;
+    border: none;
+    color: black;
+    font-size: 30px;
+    outline: 0;
+}
+
+.edit {
+    background: #02020282 0% 0% no-repeat padding-box;
+    border: 5px solid #FFFFFF;
+    border-radius: 44px;
+    text-align: center;
+    font-family: Malgun Gothic;
+    font-weight: bold;
+    font-size: 1em;
+    color: #FFFAFA;
+    margin-left: 45%;
+    width: 40%;
+    height: 65%;
+    outline: none;
+}
+
+button:hover {
+    opacity: 80%;
 }
