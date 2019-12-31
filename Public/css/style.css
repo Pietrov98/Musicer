@@ -88,3 +88,43 @@ body {
 button:hover {
     opacity: 80%;
 }
+
+@media screen and (max-width: 1000px) {
+
+    .container {
+    }
+
+    .logo {
+        top:10%;
+        left: 12%;
+        font-size: 10em;
+
+    }
+
+    .motto {
+        position: absolute;
+        margin-top: 7%;
+        font-size: 6em;
+    }
+
+    .register > button {
+        position: absolute;
+        text-align: center;
+        margin-top: 30%;
+        left: 25%;
+        top: 35%;
+        height: 10%;
+        width: 50%;
+    }
+
+    .login > button {
+        position: absolute;
+        text-align: center;
+        margin-top: 30%;
+        left: 25%;
+        top: 50%;
+        height: 10%;
+        width: 50%;
+        font-size: 3em;
+    }
+}
