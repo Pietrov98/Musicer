@@ -16,73 +16,90 @@ body {
     align-items: center;
 }
 
-span {
-    font-size: 14px;
-}
-
 .upper_container {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: row;
     background: #00000057 0% 0% no-repeat padding-box;
     width: 100%;
-    height: 150px;
+    height: 22%;
+    min-height: 150px;
     top: 0%;
     color: white;
 }
 
 .logo {
     position: relative;
-    top: 25%;
-    left: 5%;
-    text-align: center;
-    font: Bold 51px/61px Magneto;
+    top: 0;
+    font-family: Magneto;
+    height: 100%;
+    width: 30%;
     color: #FFFAFA;
     filter: blur(undefined);
 }
 
-.right_upper_container {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
+.logo > p {
+    width: 100%;
     height: 100%;
+    position: relative;
+    font-size: 3em;
+    margin-left: 10%;
+}
+
+.right_upper_container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
     right: 0;
-    top: 0;
+    top: 30px;
     margin-right: 5%;
 }
 
-.right_upper_container > div{
-    margin-left: 10px;
+
+.name_photo_menu{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 25%;
 }
 
-.right_upper_container > img {
-    position: relative;
-    display: block;
-    width: 70px;
-    height: 70px;
-    top: 25%;
-    border-radius: 50%;
-    margin-left: 15px;
+.name_photo_menu > div {
+    margin-right: 15px;
 }
 
 .nickname {
     position: relative;
-    top: 40%;
     font-family: Trebuchet MS;
+    margin-top: 15%;
     font-size: 1.3em;
     color: #FFFFFF;
 }
 
+.name_photo_menu > img {
+    position: relative;
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-top: 7%;
+
+}
+
 .menu {
     position: relative;
-    top: 0%;
+}
+
+.menu >  button {
+    position: relative;
     background: none;
     border: none;
     color: white;
-    font-size: 30px;
-    margin-left: 20px;
+    font-size: 70px;
     outline: 0;
     cursor: pointer;
+    margin-top: 15%;
+    margin-left: 20%;
 
 }
 
@@ -90,32 +107,54 @@ span {
     opacity: 80%;
 }
 
-@media (max-width: 1000px) {
-    .upper_container {
-      height: 20%;
-    }
-
-    .logo {
-       top: 35%;
-    }
-
-    .right_upper_container {
-        max-height: 100px;
-        max-width: 70%;
-        margin-top: 10%;
-    }
-
-    .right_upper_container > div{
-        font-size: 4em;
-    }
-
-    .right_upper_container > img {
-        width: 110px;
-        height: 110px;
-    }
-
-    .menu {
-        font-size: 6em;
-        margin-top: 3%;
-    }
+.drop_down_content {
+    display: none;
+    position: relative;
+    width: 97%;
+    height: 75%;
 }
+
+.drop_down_content > form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5%;
+    height: 90%;
+}
+
+.drop_down_content > form > button {
+    position: relative;
+    height: 90%;
+}
+
+
+/*@media (max-width: 1000px) {*/
+/*    .upper_container {*/
+/*      height: 20%;*/
+/*    }*/
+
+/*    .logo {*/
+/*       top: 35%;*/
+/*    }*/
+
+/*    .right_upper_container {*/
+/*        max-height: 100px;*/
+/*        max-width: 70%;*/
+/*        margin-top: 10%;*/
+/*    }*/
+
+/*    .right_upper_container > div{*/
+/*        font-size: 4em;*/
+/*    }*/
+
+/*    .right_upper_container > img {*/
+/*        width: 110px;*/
+/*        height: 110px;*/
+/*    }*/
+
+/*    .menu {*/
+/*        font-size: 6em;*/
+/*        margin-top: 3%;*/
+/*    }*/
+/*}*/
