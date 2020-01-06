@@ -2,6 +2,8 @@
 
 require_once 'Controllers/BoardController.php';
 require_once 'Controllers/SecurityController.php';
+require_once 'Controllers/EndRegisterController.php';
+require_once 'Controllers/BandController.php';
 
 
 class Routing
@@ -18,6 +20,15 @@ class Routing
             'login' => [
                 'controller' => 'SecurityController',
                 'action' => 'login'
+            ],
+            'end_register' => [
+                'controller' => 'EndRegisterController',
+                'action' => 'fillData'
+            ],
+
+            'user_band' => [
+                'controller' => 'BandController',
+                'action' => 'bandOptions'
             ]
         ];
     }

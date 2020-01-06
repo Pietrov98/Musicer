@@ -35,7 +35,6 @@
     function showMenu()
     {
         var menu = document.getElementById("drop_down_content");
-        console.log(menu.style.display);
         if(menu.style.display === "block")
         {
             menu.style.display = "none";

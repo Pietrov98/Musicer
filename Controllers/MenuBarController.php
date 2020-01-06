@@ -34,7 +34,7 @@ class MenuBarController {
         if (isset($_POST['my_band']))
         {
             $url = "http://$_SERVER[HTTP_HOST]/";
-            header("Location: {$url}?page=board");
+            header("Location: {$url}?page=user_band");
         }
     }
 
@@ -51,6 +51,7 @@ class MenuBarController {
     {
         $this->logoutUser();
         $this->userAccount();
+        $this->userBand();
     }
 
 }

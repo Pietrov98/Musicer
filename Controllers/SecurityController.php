@@ -1,7 +1,7 @@
 <?php
 
 require_once 'AppController.php';
-require_once __DIR__ . '//..//Models//User.php';
+require_once __DIR__ . '/../Models/User.php';
 
 class SecurityController extends AppController
 {
@@ -15,7 +15,7 @@ class SecurityController extends AppController
             $password = $_POST['password'];
             //tutaj dodac jakąś weryfikacje e-maila i dlugosc hasla czy cos
             $url = "http://$_SERVER[HTTP_HOST]/";
-            header("Location: {$url}?page=board");
+            header("Location: {$url}?page=end_register");
         }
     }
 
