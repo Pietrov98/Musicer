@@ -24,7 +24,6 @@ form {
     height: 18%;
     overflow: auto;
     margin-top: 10px;
-    margin-bottom: 20px;
     text-align: left;
     font-size: 1em;
     display: inline-block;
@@ -41,6 +40,7 @@ textarea[name="description"] {
     width: 80%;
     height: 20%;
     margin-left: 10%;
+    margin-bottom: 5%;
 }
 
 .file_button {
@@ -72,4 +72,53 @@ textarea[name="description"] {
 
 :hover {
     outline: none;
+}
+
+p {
+    margin: 0;
+}
+
+@media screen and (max-width: 1000px) {
+    .motto {
+        visibility: hidden;
+    }
+
+    .register > button {
+        visibility: hidden;
+    }
+
+    form {
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        width: 80%;
+        height: 50%;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #707070;
+        border-radius: 10px;
+        font: Bold 20px/27px Malgun Gothic;
+        font-size: 2em;
+    }
+
+    .preferences {
+        line-height: 1.5em;
+    }
+
+    .login {
+        visibility: hidden;
+    }
+
+    textarea[name="description"] {
+        margin-top: 5%;
+    }
+
+    .file_button {
+       height: 12%;
+        font-size: 1em;
+    }
+
+    .end_button{
+        height: 15%;
+        font-size: 2em;
+    }
 }

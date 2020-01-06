@@ -1,60 +1,58 @@
-form {
+.login_div {
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     top: 5%;
     right:3%;
     width: 35%;
-    height: 20%;
+    height: 25%;
+    min-height: 150px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
     border-radius: 10px;
     font: Bold 20px/27px Malgun Gothic;
 }
 
-.upper_login_form {
-    display: flex;
-    width: 50%;
-    height: 50%;
-    flex-direction: row;
-    padding: 5px 10px;
+.login_form {
+    width: 100%;
+    height: 100%;
 }
 
-.upper_login_form > div > input{
+.login_input {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 60%;
+    flex-direction: row;
+    align-content: center;
+}
+
+.login_input > input{
+    position: relative;
+    text-align: center;
     background: #0606064D 0% 0% no-repeat padding-box;
     border: 1px solid #FFFFFF;
     border-radius: 17px;
     height: 50%;
+    width: 45%;
     outline: none;
-    margin-right: 50px;
+    margin-right: 2vw;
+    margin-top: 1%;
+    margin-left: 5%;
+}
+
+.messages {
     text-align: center;
 }
 
-
-.lower_login_form > button {
-    margin-top: 20px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    width: 192px;
-    height: 44px;
+button[name="login_button"] {
+    position: relative;
+    width: 50%;
+    height: 30%;
     background: #FFFFFFCC 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
-}
+    margin-bottom: 2%;
 
-.lower_login_form {
-    display: flex;
-    flex-direction: row;
-}
-
-.left_lower {
-    margin-top: 5px;
-    text-align: left;
-    font-family: Segoe UI;
-}
-
-.left_lower > button {
-    background: none;
-    border:none;
 }
 
 ::placeholder
@@ -75,11 +73,12 @@ button:hover {
         visibility: hidden;
     }
 
-    form {
-        top: 25%;
+    .login_form {
+        top: 20%;
         left:10%;
         width: 80%;
-        height: 50%;
+        height: 70%;
+        min-height: 550px;
         background: #FFFFFF 0% 0% no-repeat padding-box;
         border: 1px solid #707070;
         border-radius: 10px;
@@ -90,13 +89,14 @@ button:hover {
         flex-direction: column;
         width: 100%;
         height: 50%;
-        padding: 5px 10px;
+        padding: 1vw;
+        margin-bottom: 5%;
     }
 
     .upper_login_form > div {
-        margin-top: 20px;
+        margin-top: 5%;
         height: 40%;
-        font-size: 3em;
+        font-size: 4vw;
         text-align: center;
     }
 
@@ -111,37 +111,36 @@ button:hover {
     .lower_login_form {
         display: flex;
         flex-direction: column;
-        font-size: 2em;
+        font-size: 4vw;
         text-align: center;
     }
 
     .lower_login_form > button {
-        position: absolute;
+        position: relative;
         width: 80%;
-        height: 15%;
+        height: 15vw;
         margin-left: 10%;
-        margin-top: 30%;
         background: #02020282 0% 0% no-repeat padding-box;
-        border: 5px solid #FFFFFF;
-        border-radius: 21px;
-        font-size: 2em;
+        border: 1vw solid #FFFFFF;
+        border-radius: 1vw;
+        font-size: 3vw;
         color: white;
         font-weight: bold;
         outline: none;
     }
 
     .left_lower > button {
-        text-align: center;
         background: none;
         border:none;
-        font-size: 1em;
+        font-size: 3vw;
+        margin-left: 5%;
     }
 
     input[type='checkbox'] {
-        width:30px;
-        height:30px;
+        width: 3vw;
+        height: 3vw;
         background:white;
-        border-radius:5px;
+        border-radius: 0.1vw;
         border:2px solid #555;
         margin-bottom: 5%;
         margin-left: 25%;

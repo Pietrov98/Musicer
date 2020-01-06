@@ -26,7 +26,7 @@ span {
     flex-direction: row;
     background: #00000057 0% 0% no-repeat padding-box;
     width: 100%;
-    height: 20%;
+    height: 150px;
     top: 0%;
     color: white;
 }
@@ -42,12 +42,13 @@ span {
 }
 
 .right_upper_container {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: row;
-    left: 62%;
     height: 100%;
-    top: 0%;
+    right: 0;
+    top: 0;
+    margin-right: 5%;
 }
 
 .right_upper_container > div{
@@ -87,4 +88,34 @@ span {
 
 .menu:hover {
     opacity: 80%;
+}
+
+@media (max-width: 1000px) {
+    .upper_container {
+      height: 20%;
+    }
+
+    .logo {
+       top: 35%;
+    }
+
+    .right_upper_container {
+        max-height: 100px;
+        max-width: 70%;
+        margin-top: 10%;
+    }
+
+    .right_upper_container > div{
+        font-size: 4em;
+    }
+
+    .right_upper_container > img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .menu {
+        font-size: 6em;
+        margin-top: 3%;
+    }
 }

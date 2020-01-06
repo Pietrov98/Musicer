@@ -62,9 +62,15 @@ button:hover {
 
 }
 
+.band > button {
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
 .band > button > img {
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 
@@ -74,4 +80,31 @@ p {
     color: #000000;
     font-size: 1em;
     margin-top: 0;
+}
+
+@media screen and (max-width: 1000px)
+{
+    .band {
+        width: 20%;
+        margin-left: 10%;
+    }
+
+    h3 {
+        font-size: 100%;
+    }
+
+    .role_options {
+        font-size: 2em;
+    }
+
+    .role_options > label{
+       display: block;
+        float:left;
+        font-size: 100%;
+    }
+
+    .bands_container {
+        top: 45%
+    }
+
 }

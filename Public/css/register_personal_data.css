@@ -48,6 +48,7 @@ form > input {
 .date {
     display: flex;
     flex-direction: row;
+    height: 8%;
 }
 
 .date > input {
@@ -57,20 +58,21 @@ form > input {
     border: 1px solid #FFFFFF;
     border-radius: 17px;
     width: 25%;
-    height:25px;
+    height: 100%;
     margin-left: 5%;
+    font-weight: bold;
 }
 
 .gender {
-    margin-top:20px;
-    margin-left:25%;
+    margin-top: 5%;
     display: flex;
     flex-direction: row;
-    font-size:20px;
+    font-size: 100%;
+    margin-bottom: 5%;
 }
 
 .next_button {
-    height: 50px;
+    height: 10%;
     background: #02020282 0% 0% no-repeat padding-box;
     border: 5px solid #FFFFFF;
     border-radius: 44px;
@@ -79,8 +81,60 @@ form > input {
     letter-spacing: 0;
     color: #FFFAFA;
     outline: none;
+    margin-top: 10%;
 }
 
 .next_button:hover {
     opacity: 80%;
+}
+
+p {
+    margin: 1% 0 1% 0;
+}
+
+@media screen and (max-width: 1000px) {
+    .motto {
+        visibility: hidden;
+    }
+
+    .register > button {
+        visibility: hidden;
+    }
+
+    form {
+        position: absolute;
+        top: 25%;
+        left: 10%;
+        width: 80%;
+        height: 50%;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #707070;
+        border-radius: 10px;
+        font: Bold 20px/27px Malgun Gothic;
+        font-size: 3.5em;
+    }
+
+    .login {
+        visibility: hidden;
+    }
+
+    form > input {
+        margin-top: 2%;
+        height: 7%;
+    }
+
+    .photo {
+        height: 10%;
+        font-size: 0.7em;
+    }
+
+    .date > input {
+        height: 100%;
+        font-size: 0.8em;
+    }
+
+    .next_button {
+        margin-top: 6%;
+        font-size: 1em;
+    }
 }
