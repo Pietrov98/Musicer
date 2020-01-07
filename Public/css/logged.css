@@ -54,7 +54,6 @@ body {
     right: 0;
     top: 30px;
     margin-right: 5%;
-
 }
 
 
@@ -108,11 +107,21 @@ body {
     opacity: 80%;
 }
 
+.drop_down_menu {
+    position: fixed;
+    right: 0;
+    margin-right: 5%;
+    width: 250px;
+    top: 120px;
+    height: 60%;
+}
+
 .drop_down_content {
     display: none;
     position: relative;
     width: 97%;
     height: 75%;
+
 }
 
 .drop_down_content > form {
@@ -122,6 +131,7 @@ body {
     width: 100%;
     margin-top: 5%;
     height: 90%;
+
 }
 
 .drop_down_content > form > button {

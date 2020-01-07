@@ -25,7 +25,7 @@ class MenuBarController {
         if (isset($_POST['mail_post']))
         {
             $url = "http://$_SERVER[HTTP_HOST]/";
-            header("Location: {$url}?page=board");
+            header("Location: {$url}?page=mail_post");
         }
     }
 
@@ -35,6 +35,15 @@ class MenuBarController {
         {
             $url = "http://$_SERVER[HTTP_HOST]/";
             header("Location: {$url}?page=user_band");
+        }
+    }
+
+    private function userFriends()
+    {
+        if (isset($_POST['friends']))
+        {
+            $url = "http://$_SERVER[HTTP_HOST]/";
+            header("Location: {$url}?page=friends");
         }
     }
 
@@ -52,6 +61,9 @@ class MenuBarController {
         $this->logoutUser();
         $this->userAccount();
         $this->userBand();
+        $this->userFriends();
+        $this->userPost();
+        $this->findBand();
     }
 
 }

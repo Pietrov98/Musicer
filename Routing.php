@@ -4,6 +4,8 @@ require_once 'Controllers/BoardController.php';
 require_once 'Controllers/SecurityController.php';
 require_once 'Controllers/EndRegisterController.php';
 require_once 'Controllers/BandController.php';
+require_once 'Controllers/FriendsController.php';
+require_once 'Controllers/PostController.php';
 
 
 class Routing
@@ -29,6 +31,14 @@ class Routing
             'user_band' => [
                 'controller' => 'BandController',
                 'action' => 'bandOptions'
+            ],
+            'friends' => [
+                'controller' => 'FriendsController',
+                'action' => 'showFriends'
+            ],
+            "mail_post" => [
+                'controller' => 'PostController',
+                'action' => "acceptInvitation"
             ]
         ];
     }

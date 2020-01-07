@@ -64,13 +64,13 @@
                     <button name="mail_post" type="submit">Poczta</button>
                     <button name="my_account" type="submit">Mój profil</button> <!--Bedzie szukaj, ale jak bedziesz mial to nie mozesz dolaczyc-->
                     <button name="my_band" type="submit">Mój zespół</button>
+                    <button name="friends" type="submit">Znajomi</button>
                     <button name="find_band" type="submit">Szukaj zespołu</button>
                     <button name="logout" type="submit">Wyloguj</button>
                 </form>
             </div>
         </div>
     </div>
-
     <div class="user_information" id="edit_data">
         <button class="exit_button" type="button" onclick="closeEditForm()"><img src="/Public/img/exit_icon.png"></button>
         <form class="edit_form" action="?page=board" method="POST">

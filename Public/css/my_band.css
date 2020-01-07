@@ -51,8 +51,7 @@
 .band_logo > img {
     margin-top: 5%;
     position: relative;
-    width: 50%;
-    border-radius: 50%;
+    height: 150px;
 }
 
 .members {

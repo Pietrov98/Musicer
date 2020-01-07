@@ -14,7 +14,6 @@
         <div class="logo"><p>Musicer</p></div>
     </div>
     <div class="user_information" id="edit_data" style="display: flex">
-        <button class="exit_button" type="button" onclick="closeEditForm()"><img src="/Public/img/exit_icon.png"></button>
         <form class="edit_form" action="?page=end_register" method="POST">
             <div class="edit_description">
                 <div>Wprowadź swój opis</div>

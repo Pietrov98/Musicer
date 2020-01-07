@@ -80,7 +80,6 @@ button:hover {
 
 .mail_list {
     width: 100%;
-    overflow-y: scroll;
 }
 
 .mail {

@@ -1,0 +1,87 @@
+.send_message {
+    position: relative;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 6%;
+    height: 70%;
+}
+
+.send_message > button {
+    position: relative;
+    width: 100%;
+    height: 60%;
+    min-height: 30px;
+    outline: none;
+    background: #707070;
+    color:white;
+    font-size: 100%;
+    border: none;
+}
+
+.message {
+    z-index: 1;
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 500px;
+    height: 55%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    font: Bold 20px/27px Malgun Gothic;
+    letter-spacing: 0;
+    color: #000000;
+    overflow: auto;
+}
+
+.message_form {
+    position: relative;
+    width: 100%;
+    height: 90%;
+}
+
+.message_description {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    min-height: 250px;
+}
+
+.message_content {
+    position: relative;
+    width: 100%;
+    height: 60%;
+}
+
+.message_content > textarea {
+    position: relative;
+    height: 100%;
+    width: 90%;
+    font-size: 70%;
+    margin-top: 5%;
+    background: #0606064D 0% 0% no-repeat padding-box;
+    border: 1px solid #FFF8F8;
+    text-align: left;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: Malgun Gothic;
+    font-weight: bold;
+}
+
+.save_message {
+    position: relative;
+    width: 60%;
+    margin-left: 20%;
+    height: 20%;
+}
+
+.save_message > button {
+    position: relative;
+    width: 100%;
+    height: 60%;
+    min-height: 30px;
+    outline: none;
+    background: #707070;
+    color:white;
+    font-size: 100%;
+    border: none;
+}
