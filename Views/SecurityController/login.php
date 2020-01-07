@@ -7,50 +7,10 @@
     <link rel="stylesheet" type="text/css" href="../../Public/css/login.css" />
     <link rel="stylesheet" type="text/css" href="../../Public/css/register.css" />
     <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <script src="/Public/scripts/login_functions.js"></script>
 </head>
-<body>
-<script>
-    function showLoginForm()
-    {
-        var element = document.getElementById("login_form");
-        element.style.display = "flex";
-        var element2 = document.getElementById("register_form");
-        element2.style.display = "none";
-        var element3 = document.getElementById("register");
-        element3.style.display = "block";
-        var element4 = document.getElementById("login");
-        element4.style.display = "none";
-    }
+<!--jquery string content string includes-->
 
-    function showRegisterForm()
-    {
-        var element = document.getElementById("register_form");
-        element.style.display = "flex";
-        var element2 = document.getElementById("login_form");
-        element2.style.display = "none";
-        var element4 = document.getElementById("login");
-        element4.style.display = "block";
-        var element3 = document.getElementById("register");
-        element3.style.display = "none";
-    }
-    
-    function  closeLoginForm()
-    {
-        var element = document.getElementById("login_form");
-        element.style.display = "none";
-        var element2 = document.getElementById("login");
-        element2.style.display = "block";
-    }
-
-    function  closeRegisterForm()
-    {
-        var element = document.getElementById("register_form");
-        element.style.display = "none";
-        var element2 = document.getElementById("register");
-        element2.style.display = "block";
-
-    }
-</script>
 <div class="container" id="container" onclick="hideForms()">
     <div class="motto">
         Twórz Udostępniaj Szukaj
