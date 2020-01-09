@@ -2,23 +2,17 @@
 
 class User
 {
+    private $ID;
     private $email;
     private $password;
     private $name;
-    private $surname;
-    private $role = ['ROLE_USER'];
 
-    public function __construct(
-        string $email,
-        string $password,
-        string $name,
-        string $surname
-    )
+    public function __construct(string $email, string $password, string $name, string $ID)
     {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
-        $this->surname = $surname;
+        $this->ID = $ID;
     }
 
     public function getEmail(): string
@@ -29,5 +23,15 @@ class User
     public function getPassword()
     {
         return $this->password;
+    }
+
+    public function getID()
+    {
+        return $this->ID;
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 }

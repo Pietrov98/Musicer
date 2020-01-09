@@ -11,7 +11,7 @@
 </head>
 <!--jquery string content string includes-->
 
-<div class="container" id="container" onclick="hideForms()">
+<div class="container" id="container">
     <div class="motto">
         Twórz Udostępniaj Szukaj
     </div>
@@ -26,9 +26,9 @@
             <p>E-mail</p>
             <input name="email" type="text" placeholder="email@email.com">
             <p>Hasło</p>
-            <input name="password" type="text" placeholder="......">
+            <input name="password1" type="text" placeholder="......">
             <p>Powtórz hasło</p>
-            <input name="password" type="text" placeholder="......">
+            <input name="password2" type="text" placeholder="......">
 <!--            <input name="user_photo" id="user_photo" type="file" accept="image/*">-->
             <button class="button_next" name="register_button">ZAREJESTRUJ SIĘ</button>
         </form>

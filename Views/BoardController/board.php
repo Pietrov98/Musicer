@@ -1,3 +1,10 @@
+<?php
+    if(!isset($_SESSION['id']))
+    {
+        die('You are not logged in!');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

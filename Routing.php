@@ -27,7 +27,10 @@ class Routing
                 'controller' => 'EndRegisterController',
                 'action' => 'fillData'
             ],
-
+            'logout' => [
+                'controller' => 'SecurityController',
+                'action' => 'logout'
+            ],
             'user_band' => [
                 'controller' => 'BandController',
                 'action' => 'bandOptions'

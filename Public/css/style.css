@@ -15,10 +15,11 @@ body {
     height: inherit;
     align-items: center;
     background-image: url('main_background.png');
+    overflow: auto;
 }
 
 .motto {
-    position: fixed;
+    position: absolute;
     top: 25%;
     width: 75%;
     height: 25%;
@@ -27,6 +28,11 @@ body {
     color: #FFFFFF;
     font-family: Consolas;
     font-size: 6vw;
+    z-index: 1;
+}
+
+.register {
+    z-index: 1;
 }
 
 .register > button {
@@ -42,6 +48,7 @@ body {
     color: white;
     font-weight: bold;
     outline: none;
+    z-index: 1;
 }
 
 
@@ -58,6 +65,7 @@ body {
     background: #FFFFFFCC 0% 0%;
     border: 1px solid #707070;
     outline: none;
+    z-index: 1;
 }
 
 .footage {
@@ -74,6 +82,7 @@ body {
     letter-spacing: 0;
     color: #FCDCCA;
     font-size: 5vw;
+    z-index: 0;
 }
 
 
