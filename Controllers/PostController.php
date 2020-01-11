@@ -11,5 +11,8 @@ class PostController extends AppController {
         $messageRepository = new MessageRepository();
         $messages = $messageRepository->getMessages();
         $this->render('mail_post', ['messages' => $messages]);
+//        $userRepository = new UserRepository();
+//        $user = $userRepository->getUserID($_SESSION['id']);
+//        $this->render('friends', ['user' => $user]);
     }
 }

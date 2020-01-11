@@ -10,13 +10,24 @@ class User
     private $user_img;
     private $user_record;
 
-    public function __construct(string $email, string $password, string $name, string $ID, string $user_img, string $description, string $user_record)
+    public function __construct(string $email = "",
+                                string $password = "",
+                                string $name = "",
+                                string $user_img = "",
+                                string $description = "",
+                                string $user_record = "")
     {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
-        $this->ID = $ID;
-        $this->user_img = $user_img;
+        if ($user_img == "")
+        {
+            $this->user_img = "nobody_img.jpg";
+        }
+        else
+        {
+            $this->user_img = $user_img;
+        }
         $this->description = $description;
         $this->user_record = $user_record;
     }
@@ -54,6 +65,11 @@ class User
     public function getUserRecord()
     {
         return $this->user_record;
+    }
+
+    public  function setUserID($ID)
+    {
+        $this->ID = $ID;
     }
 
 }

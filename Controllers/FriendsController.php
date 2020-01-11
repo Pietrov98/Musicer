@@ -1,6 +1,7 @@
 <?php
 
 require_once "FriendsController.php";
+require_once 'Repository/FriendsRepository.php';
 require_once 'MenuBarController.php';
 
 
@@ -17,7 +18,10 @@ class FriendsController  extends AppController {
             }
             $barController->barController();
         }
-        $this->render('friends');
+        $friendsRepository = new FriendsRepository();
+
+        $friends = $friendsRepository->getFriends();
+        $this->render('friends', ['friends' => $friends]);
     }
 
 }

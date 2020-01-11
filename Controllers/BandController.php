@@ -13,6 +13,8 @@ class BandController extends AppController {
         {
             $barController->barController();
         }
-        $this->render('user_band');
+        $userRepository = new UserRepository();
+        $user = $userRepository->getUserID($_SESSION['id']);
+        $this->render('user_band', ['user' => $user]);
     }
 }

@@ -23,30 +23,7 @@
     }
 </script>
 <div class="container">
-    <div class="upper_container">
-        <div class="logo">
-            <p>Musicer</p>
-        </div>
-        <div class="right_upper_container">
-            <div class="name_photo_menu">
-                <div class="nickname">NickName</div>
-                <img src="/Public/img/anthony_friend.png">
-                <div class="menu">
-                    <button id="menu_button" onclick="showMenu()"><i class="fa fa-bars"></i></button>
-                </div>
-            </div>
-        </div>
-        <div class="drop_down_content" id="drop_down_content">
-            <form class="menu_form" action="?page=board" method="POST">
-                <button name="mail_post" type="submit">Poczta</button>
-                <button name="my_account" type="submit">Mój profil</button> <!--Bedzie szukaj, ale jak bedziesz mial to nie mozesz dolaczyc-->
-                <button name="my_band" type="submit">Mój zespół</button>
-                <button name="friends" type="submit">Znajomi</button>
-                <button name="find_band" type="submit">Szukaj zespołu</button>
-                <button name="logout" type="submit">Wyloguj</button>
-            </form>
-        </div>
-    </div>
+    <?php include(dirname(__DIR__).'/MenuBar/menuBar.php'); ?>
     <div class="post_container">
         <div class="upper_post_container">
             <div class="options_container">
@@ -66,10 +43,10 @@
             if(isset($messages)){
                 foreach($messages as $message):
                     echo '<div class="mail">'.
-                        '<div class="sender">'.$message->getSenderName().'</div>';
-                    echo '<div>'.$message->getContent().'</div>';
-                    echo '<div class="date">'.$message->getDate().'</div>';
-                    echo '</div>';
+                        '<div class="sender">'.$message->getSenderName().'</div>'.
+                        '<div>'.$message->getContent().'</div>'.
+                        '<div class="date">'.$message->getDate().'</div>'.
+                        '</div>';
                 endforeach;
             }
             ?>

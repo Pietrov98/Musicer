@@ -48,18 +48,19 @@ class SecurityController extends AppController
                 //$this->render('login', ['messages' => ['Za krótkie hasło']]);
                 return;
             }
-            if(!preg_match("/^[a-zA-Z ]*$/",$login) || $login == "")
+            if(!preg_match("/^[a-zA-Z ]*$/",$login) || $login == "") //dodac cyfry
             {
                 echo "Taki login nie może istnieć";
                 //$this->render('login', ['messages' => ['Taki login nie może istnieć']]);
                 return;
             }
-//            $userRepository->addUser($email, $login, $password1);
-//            $user = $userRepository->getUser($email);
-//            $_SESSION["id"] = $user->getID();
+            $new_user = new User($email, $password1, $login);
+            $userRepository->addUser($new_user);
+            $user = $userRepository->getUser($email);
+            $_SESSION["id"] = $user->getID();
 //            //tutaj dodac jakąś weryfikacje e-maila i dlugosc hasla czy cos
-//            $url = "http://$_SERVER[HTTP_HOST]/";
-//            header("Location: {$url}?page=end_register");
+            $url = "http://$_SERVER[HTTP_HOST]/";
+            header("Location: {$url}?page=end_register");
         }
     }
 
@@ -82,13 +83,14 @@ class SecurityController extends AppController
                 $password = $_POST['password'];
 
                 $user = $userRepository->getUser($email);
-
                 if (!$user) {
                     $this->render('login', ['messages' => ['User with this email not exist!']]);
                     return;
                 }
 
                 if ($user->getPassword() !== $password) {
+                    var_dump($user->getPassword());
+                    var_dump($password);
                     $this->render('login', ['messages' => ['Wrong password!']]);
                     return;
                 }

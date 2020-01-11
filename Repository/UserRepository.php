@@ -19,15 +19,17 @@ class UserRepository extends Repository {
             return null;
         }
 
-        return new User(
+        $new_user =  new User(
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['ID'],
             $user['user_img'],
             $user['description'],
             $user['user_record']
         );
+        $new_user->setUserID($user['ID']);
+        return $new_user;
+
     }
 
     public function checkLogin(string $name): ?User
@@ -43,15 +45,16 @@ class UserRepository extends Repository {
             return null;
         }
 
-        return new User(
+        $new_user =  new User(
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['ID'],
             $user['user_img'],
             $user['description'],
             $user['user_record']
         );
+        $new_user->setUserID($user['ID']);
+        return $new_user;
     }
 
     public function getUserID(string $ID): ?User
@@ -67,51 +70,75 @@ class UserRepository extends Repository {
             return null;
         }
 
-        return new User(
+        $new_user =  new User(
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['ID'],
             $user['user_img'],
             $user['description'],
             $user['user_record']
         );
+        $new_user->setUserID($user['ID']);
+        return $new_user;
     }
 
-    public function getUsers(): array {
-        $result = [];
-        $stmt = $this->database->connect()->prepare('
-            SELECT * FROM User
-        ');
-        $stmt->execute();
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($users as $user) {
-            $result[] = new User(
-                $user['email'],
-                $user['name'],
-                $user['password'],
-                $user['ID'],
-                $user['user_img'],
-                $user['description'],
-                $user['user_record']
-            );
-        }
-        return $result;
-    }
+    //to sprawdzic, cos nie gra
+//    public function getUsers(): array {
+//        $result = [];
+//        $stmt = $this->database->connect()->prepare('
+//            SELECT * FROM User
+//        ');
+//        $stmt->execute();
+//        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//
+//        foreach ($users as $user) {
+//            $user =  new User(
+//                $user['email'],
+//                $user['password'],
+//                $user['name'],
+//                $user['user_img'],
+//                $user['description'],
+//                $user['user_record']
+//            );
+//            $user->setUserID($user['ID']);
+//        }
+//        return $result;
+//    }
 
-    public function addUser($email, $name, $password)
+    public function addUser(User $user)
     {
         //sprawdzic nazwy w User
-        $query = "INSERT INTO User (email, name, password) VALUES (?, ?, ?)";
+        $query = "INSERT INTO User (email, name, password, user_img, user_record, description) VALUES (?, ?, ?, ?, ?, ?)";
         //$query = "INSERT INTO User VALUES (null,'$email', '$name', '$password')";
         $stmt = $this->database->connect()->prepare($query);
-        $stmt->execute([$email, $name, $password]);
+        $stmt->execute([$user->getEmail(),
+                        $user->getName(),
+                        $user->getPassword(),
+                        $user->getUserImg(),
+                        $user->getUserRecord(),
+                        $user->getDescription()]);
+    }
+
+    private function checkData($value, $getFunction)
+    {
+        if(($value == "" && $getFunction == "") || ($value == "" && $getFunction != ""))
+        {
+            return $getFunction;
+        }
+        return $value;
     }
 
     public function fillData($description = "", $user_img = "", $user_record = "")
     {
         $userID = $_SESSION['id'];
-
+        $user_check = $this->getUserID($userID);
+        $user_img = $this->checkData($user_img, $user_check->getUserImg());
+        $user_record = $this->checkData($user_record, $user_check->getUserRecord());
+        $description = $this->checkData($description, $user_check->getDescription());
+        if(ctype_space($description) && !ctype_space($user_check->getDescription()))
+        {
+            $description = $user_check->getDescription();
+        }
         $query = "UPDATE User u
                     SET u.description = '$description', 
                     u.user_img = '$user_img', 
