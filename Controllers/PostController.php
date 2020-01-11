@@ -2,12 +2,14 @@
 
 require_once "PostController.php";
 require_once "AppController.php";
+require_once __DIR__.'/../Models/Message.php';
+require_once __DIR__.'/../Repository/MessageRepository.php';
 
 class PostController extends AppController {
-
     function acceptInvitation()
     {
-        $this->render('mail_post');
+        $messageRepository = new MessageRepository();
+        $messages = $messageRepository->getMessages();
+        $this->render('mail_post', ['messages' => $messages]);
     }
-
 }

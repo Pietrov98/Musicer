@@ -14,7 +14,7 @@
         <div class="logo"><p>Musicer</p></div>
     </div>
     <div class="user_information" id="edit_data" style="display: flex">
-        <form class="edit_form" action="?page=end_register" method="POST">
+        <form class="edit_form" action="?page=end_register" method="POST" enctype="multipart/form-data">
             <div class="edit_description">
                 <div>Wprowadź swój opis</div>
                 <div class="edit_description_content">
@@ -26,8 +26,8 @@
                 <input name="user_photo" id="user_photo" type="file" accept="image/*">
             </div>
             <div class="user_input">
-                <div>Wybierz nagranie</div>
-                <input name="user_record" id="user_photo" type="file" accept="image/*">
+                <div>Wybierz nagranie (plik nie może przekraczać 2MB)</div>
+                <input name="user_record" id="user_record" type="file" accept="audio/*">
             </div>
             <div class="save_changes">
                 <button  name="save_changes" type="submit">ZAPISZ ZMIANY</button>

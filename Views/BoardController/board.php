@@ -82,7 +82,7 @@
     </div>
     <div class="user_information" id="edit_data">
         <button class="exit_button" type="button" onclick="closeEditForm()"><img src="/Public/img/exit_icon.png"></button>
-        <form class="edit_form" action="?page=board" method="POST">
+        <form class="edit_form" action="?page=board" method="POST"  enctype="multipart/form-data">
             <div class="edit_description">
                 <div>Wprowadź swój opis</div>
                 <div class="edit_description_content">
@@ -95,7 +95,7 @@
             </div>
             <div class="user_input">
                 <div>Wybierz nagranie</div>
-                <input name="user_record" id="user_photo" type="file" accept="image/*">
+                <input name="user_record" id="user_record" type="file" accept="audio/*">
             </div>
             <div class="save_changes">
                 <button  name="save_changes" type="submit">ZAPISZ ZMIANY</button>
@@ -113,27 +113,41 @@
             </div>
             <div class="photo_and_name">
                 <div class="main_photo">
-                    <img src="/Public/img/vocal_img.png">
+                    <?php
+                    if(isset($user))
+                    {
+                        echo "<img src=/Public/uploads/user_img/" .$user->getUserImg().">";
+                    }
+                    ?>
                 </div>
                 <div class="name">
-                    TheFlea<br/>
+                    <?php
+                    if(isset($user))
+                    {
+                        echo $user->getName()."<br/>";
+                    }
+                    ?>
                 </div>
             </div>
         </div>
         <div class="description">
             <div>Opis</div>
-            <div class="description_content">OpisTutaj jakiś opis postaci asdasdas d asd asd asd asd as as dasd asd asd asd
-                pisTutaj jakiś opis postaci asdasdas d asd asd asd asd as as dasd asd asd asd
-                pisTutaj jakiś opis postaci asdasdas d asd asd asd asd as as dasd asd asd asd
+            <div class="description_content">
+                <?php
+                if(isset($user))
+                {
+                    echo $user->getDescription();
+                }
+                ?>
             </div>
         </div>
         <div class="bottom_informations">
             <div class="song_title">Can't stop</div>
             <div class="record" id="my_record">
-<!--                <div class="record_panel"></div>-->
-<!--                <button class="play_button" type="button" onclick="changeMusicIcon()"><img src="/Public/img/play_icon.png" id="play_icon"></button>-->
                 <audio id="my_record" controls onseeking="startMusic()" onseeked="startMusic()">
-                    <source src="/Public/audio/bensound-buddy.mp3" type="audio/mp3">
+                    <?php
+                        echo '<source src="/Public/uploads/records/'.$user->getUserRecord().'" type="audio/mp3">';
+                    ?>
                 </audio>
             </div>
             <div class="edit">

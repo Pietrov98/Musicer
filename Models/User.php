@@ -6,13 +6,19 @@ class User
     private $email;
     private $password;
     private $name;
+    private $description;
+    private $user_img;
+    private $user_record;
 
-    public function __construct(string $email, string $password, string $name, string $ID)
+    public function __construct(string $email, string $password, string $name, string $ID, string $user_img, string $description, string $user_record)
     {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
         $this->ID = $ID;
+        $this->user_img = $user_img;
+        $this->description = $description;
+        $this->user_record = $user_record;
     }
 
     public function getEmail(): string
@@ -34,4 +40,20 @@ class User
     {
         return $this->name;
     }
+
+    public function getUserImg()
+    {
+        return $this->user_img;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function getUserRecord()
+    {
+        return $this->user_record;
+    }
+
 }

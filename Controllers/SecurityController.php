@@ -54,12 +54,12 @@ class SecurityController extends AppController
                 //$this->render('login', ['messages' => ['Taki login nie może istnieć']]);
                 return;
             }
-            //$userRepository->addUser($email, $login, $password1);
-            //$user = $userRepository->getUser($email);
-            //$_SESSION["id"] = $user->getEmail();
-            //tutaj dodac jakąś weryfikacje e-maila i dlugosc hasla czy cos
-            //$url = "http://$_SERVER[HTTP_HOST]/";
-            //header("Location: {$url}?page=end_register");
+//            $userRepository->addUser($email, $login, $password1);
+//            $user = $userRepository->getUser($email);
+//            $_SESSION["id"] = $user->getID();
+//            //tutaj dodac jakąś weryfikacje e-maila i dlugosc hasla czy cos
+//            $url = "http://$_SERVER[HTTP_HOST]/";
+//            header("Location: {$url}?page=end_register");
         }
     }
 
@@ -93,7 +93,7 @@ class SecurityController extends AppController
                     return;
                 }
 
-                $_SESSION["id"] = $user->getEmail();
+                $_SESSION["id"] = $user->getID();
                 $url = "http://$_SERVER[HTTP_HOST]/";
                 header("Location: {$url}?page=board");
                 return;

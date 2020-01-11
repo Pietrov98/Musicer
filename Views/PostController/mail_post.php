@@ -63,13 +63,14 @@
         </div>
         <div class="mail_list">
             <?php
-            for ($i = 0; $i < 5 ; $i++) {
-                $name = "Tutaj jakiś testowy tekst";
-                echo '<div class="mail">';
-                echo '<div class="sender">Adrian</div>';
-                echo '<div>Cześć, wpadasz jutro?</div>';
-                echo '<div class="date">19.01.2010</div>';
-                echo '</div>';
+            if(isset($messages)){
+                foreach($messages as $message):
+                    echo '<div class="mail">'.
+                        '<div class="sender">'.$message->getSenderName().'</div>';
+                    echo '<div>'.$message->getContent().'</div>';
+                    echo '<div class="date">'.$message->getDate().'</div>';
+                    echo '</div>';
+                endforeach;
             }
             ?>
 <!--            <div class="mail">-->
