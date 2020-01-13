@@ -12,6 +12,7 @@ class User
 
     public function __construct(string $email = "",
                                 string $password = "",
+                                string $ID = "",
                                 string $name = "",
                                 string $user_img = "",
                                 string $description = "",
@@ -19,6 +20,7 @@ class User
     {
         $this->email = $email;
         $this->password = $password;
+        $this->ID = $ID;
         $this->name = $name;
         if ($user_img == "")
         {
@@ -65,11 +67,6 @@ class User
     public function getUserRecord()
     {
         return $this->user_record;
-    }
-
-    public  function setUserID($ID)
-    {
-        $this->ID = $ID;
     }
 
 }

@@ -22,12 +22,12 @@ class UserRepository extends Repository {
         $new_user =  new User(
             $user['email'],
             $user['password'],
+            $user["ID"],
             $user['name'],
             $user['user_img'],
             $user['description'],
             $user['user_record']
         );
-        $new_user->setUserID($user['ID']);
         return $new_user;
 
     }
@@ -48,12 +48,12 @@ class UserRepository extends Repository {
         $new_user =  new User(
             $user['email'],
             $user['password'],
+            $user["ID"],
             $user['name'],
             $user['user_img'],
             $user['description'],
             $user['user_record']
         );
-        $new_user->setUserID($user['ID']);
         return $new_user;
     }
 
@@ -73,12 +73,12 @@ class UserRepository extends Repository {
         $new_user =  new User(
             $user['email'],
             $user['password'],
+            $user["ID"],
             $user['name'],
             $user['user_img'],
             $user['description'],
             $user['user_record']
         );
-        $new_user->setUserID($user['ID']);
         return $new_user;
     }
 

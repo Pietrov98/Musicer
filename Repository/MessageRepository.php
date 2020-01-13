@@ -29,4 +29,15 @@ class MessageRepository extends Repository
         }
         return $result;
     }
+
+    public function newMessage(string $recipientID, string $content)
+    {
+        $query = "INSERT INTO Message (id_recipient, content, date, id_sender) VALUES (?, ?, ?, ?)";
+        //$query = "INSERT INTO User VALUES (null,'$email', '$name', '$password')";
+        $stmt = $this->database->connect()->prepare($query);
+        $stmt->execute([$recipientID,
+                        $content,
+                        date("Y-m-d h:i:s"),
+                        $_SESSION['id']]);
+    }
 }
