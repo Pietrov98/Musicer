@@ -28,10 +28,9 @@ class FriendsRepository extends Repository {
                 $user['description'],
                 $user['user_record']);
         }
-        // kurwa!!! Nowy standard - FTP API
-//         $fp = fopen('friends.json', 'w');
-//         fwrite($fp, json_encode($users));
-//         fclose($fp);
+        $fp = fopen('friends.json', 'w');
+        fwrite($fp, json_encode($users));
+        fclose($fp);
         return $result;
     }
 }
