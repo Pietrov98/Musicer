@@ -30,55 +30,36 @@
         <div>RedHotChiliPeppers</div>
         <div class="logo_description">
             <div class="band_logo">
-                <img src="/Public/img/main_background.png">
+                <?php
+                if(isset($band))
+                {
+                    echo  "<img src=/Public/uploads/user_img/" .$band->getBandImg().">";
+                }
+                ?>
             </div>
             <div class="description">
-                <div>Tutaj asdaspdokaspdokaspdkoaspdokaspodjapsijaspodkwpoaspdokapsdojkwpaojsdpoaskdpaosk</div>
+                <?php
+                if(isset($band))
+                {
+                    echo "<div>".$band->getBandDescription()."</div>";
+                }
+                ?>
             </div>
         </div>
         <div class="members">
-            <div class="member">
-                <div>Bass Guitar</div>
-                <img src="/Public/img/sprawz_to.png">
-                <div>TheFlea</div>
-            </div>
-            <div class="member">
-                <div>Guitar</div>
-                <img src="/Public/img/guitar_img.png">
-                <div>Chris</div>
-            </div>
-            <div class="member">
-                <div>Drums</div>
-                <img src="/Public/img/chad_friend.png">
-                <div>Chad</div>
-            </div>
-            <div class="member">
-                <div>Vocal</div>
-                <img src="/Public/img/vocal_img.png">
-                <div>Anthony</div>
-            </div>
-            <div class="member">
-                <div>Vocal</div>
-                <img src="/Public/img/vocal_img.png">
-                <div>Anthony</div>
-            </div>
-            <div class="member">
-                <div>Vocal</div>
-                <img src="/Public/img/vocal_img.png">
-                <div>Anthony</div>
-            </div>
-            <div class="member">
-                <div>Vocal</div>
-                <img src="/Public/img/vocal_img.png">
-                <div>Anthony</div>
-            </div>
-            <div class="member">
-                <div>Vocal</div>
-                <img src="/Public/img/vocal_img.png">
-                <div>Anthony</div>
-            </div>
+            <?php
+            if(isset($band))
+            {
+                foreach($band->getMembers() as $member):
+                    echo '<div class="member">'.
+                            "<img src=/Public/uploads/user_img/" .$member->getUserImg().">".
+                            '<div>'.$member->getName().'</div>'.
+                        '</div>';
+                endforeach;
+            }
+            ?>
         </div>
     </div>
-
 </div>
 </body>
+</html>

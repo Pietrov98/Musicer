@@ -145,16 +145,13 @@
 <!--        Poprawic wyswietlanie, bo sie rozjezdza-->
             <?php
             if(isset($friends)){
-                $i = 0;
                 foreach($friends as $friend):
                     echo '<div class="friend">'.
                         '<button type="button" class="friend_button" id="'.$friend->getID().'" onclick="showFriend(this.id)"/>'.
                         "<img src=/Public/uploads/user_img/" .$friend->getUserImg().">".'</button>'.
                         '<p>'.$friend->getName().'</p>'.
                         '</div>';
-                    $i++;
                 endforeach;
-                $i = 0;
             }
             ?>
             </form>

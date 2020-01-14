@@ -2,6 +2,9 @@
 
 require_once "BandController.php";
 require_once "MenuBarController.php";
+require_once 'Repository/UserRepository.php';
+require_once 'Repository/BandRepository.php';
+
 
 class BandController extends AppController {
 
@@ -15,6 +18,10 @@ class BandController extends AppController {
         }
         $userRepository = new UserRepository();
         $user = $userRepository->getUserID($_SESSION['id']);
-        $this->render('user_band', ['user' => $user]);
+        $_SESSION["band_id"] = $user->getBandID();
+        $bandRepository = new BandRepository();
+        $band = $bandRepository->getBand();
+        $this->render('user_band', ['band' => $band]);
+        //dodac szukanie czlonkow
     }
 }

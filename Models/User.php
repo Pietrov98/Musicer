@@ -9,6 +9,7 @@ class User
     private $description;
     private $user_img;
     private $user_record;
+    private $band_id;
 
     public function __construct(string $email = "",
                                 string $password = "",
@@ -16,7 +17,8 @@ class User
                                 string $name = "",
                                 string $user_img = "",
                                 string $description = "",
-                                string $user_record = "")
+                                string $user_record = "",
+                                string $band_id ="")
     {
         $this->email = $email;
         $this->password = $password;
@@ -32,6 +34,7 @@ class User
         }
         $this->description = $description;
         $this->user_record = $user_record;
+        $this->band_id = $band_id;
     }
 
     public function getEmail(): string
@@ -67,6 +70,11 @@ class User
     public function getUserRecord()
     {
         return $this->user_record;
+    }
+
+    public function getBandID()
+    {
+        return $this->band_id;
     }
 
 }
