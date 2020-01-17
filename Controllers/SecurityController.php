@@ -20,44 +20,51 @@ class SecurityController extends AppController
             $password2 = $_POST['password2'];
             if($userRepository->getUser($email))
             {
-                echo "Do adresu e-mail jest już przypisane konto";
-                //$this->render('login', ['messages' => ['Do adresu e-mail jest już przypisane konto']]);
-                return;
+                //echo "Do adresu e-mail jest już przypisane konto!";
+                $this->render('login', ['register_posts' => ['Do adresu e-mail jest już przypisane konto']]);
+                //return;
             }
-            if($userRepository->checkLogin($login))
+            else if($userRepository->checkLogin($login))
             {
-                echo "Login został już wykorzystany";
-                //$this->render('login', ['messages' => ['Login został już wykorzystany']]);
-                return;
+                //echo "Login został już wykorzystany!";
+                $this->render('login', ['register_posts' => ['Login został już wykorzystany']]);
+               // return;
             }
-            if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+            else if(!filter_var($email, FILTER_VALIDATE_EMAIL))
             {
-                echo "Niepoprawny adres e-mail";
-                //$this->render('login', ['messages' => ['Niepoprawny adres e-mail']]);
-                return;
+                //echo "Niepoprawny adres e-mail!";
+                $this->render('login', ['register_posts' => ['Niepoprawny adres e-mail']]);
+               // return;
             }
-            if($password2 != $password1)
+            else if($password2 != $password1)
             {
-                echo "Hasła nie mogą się różnić";
-                //$this->render('login', ['messages' => ['Hasła nie mogą się różnić']]);
-                return;
+                //echo "Hasła nie mogą się różnić!";
+                $this->render('login', ['register_posts' => ['Hasła nie mogą się różnić']]);
+                //return;
             }
             else if(strlen($password1) < 6)
             {
-                echo "Za krótkie hasło";
-                //$this->render('login', ['messages' => ['Za krótkie hasło']]);
-                return;
+                //echo "Za krótkie hasło!";
+                $this->render('login', ['register_posts' => ['Za krótkie hasło']]);
+               // return;
             }
-            if(!preg_match("/^[a-zA-Z ]*$/",$login) || $login == "") //dodac cyfry
+//            if(!preg_match("/^[a-zA-Z ]*$/",$login) || $login == "") //dodac cyfry
+//            {
+//
+//                return;
+//            }
+            else if (preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/',$login) || $login == "")
             {
-                echo "Taki login nie może istnieć";
-                //$this->render('login', ['messages' => ['Taki login nie może istnieć']]);
-                return;
+                //echo "Taki login nie może istnieć!";
+                $this->render('login', ['register_posts' => ['Taki login nie może istnieć']]);
             }
             $new_user = new User($email, $password1, $login);
             $userRepository->addUser($new_user);
             $user = $userRepository->getUser($email);
             $_SESSION["id"] = $user->getID();
+            $_SESSION["user_img"] = $user->getUserImg();
+            $_SESSION["name"] = $user->getName();
+
 //            //tutaj dodac jakąś weryfikacje e-maila i dlugosc hasla czy cos
             $url = "http://$_SERVER[HTTP_HOST]/";
             header("Location: {$url}?page=end_register");
@@ -68,7 +75,7 @@ class SecurityController extends AppController
     {
         session_unset();
         session_destroy();
-        $this->render('login', ['messages' => ['You have been successfully logged out!']]);
+        $this->render('login');
     }
 
     public function login()
@@ -84,18 +91,18 @@ class SecurityController extends AppController
 
                 $user = $userRepository->getUser($email);
                 if (!$user) {
-                    $this->render('login', ['messages' => ['User with this email not exist!']]);
+                    $this->render('login', ['login_posts' => ['Taki użytkownik nie istnieje!']]);
                     return;
                 }
 
-                if ($user->getPassword() !== $password) {
-                    var_dump($user->getPassword());
-                    var_dump($password);
-                    $this->render('login', ['messages' => ['Wrong password!']]);
+                else if ($user->getPassword() !== $password) {
+                    $this->render('login', ['login_posts' => ['Błędne hasło!']]);
                     return;
                 }
 
                 $_SESSION["id"] = $user->getID();
+                $_SESSION["user_img"] = $user->getUserImg();
+                $_SESSION["name"] = $user->getName();
                 $url = "http://$_SERVER[HTTP_HOST]/";
                 header("Location: {$url}?page=board");
                 return;

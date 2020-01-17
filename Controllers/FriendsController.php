@@ -10,7 +10,28 @@ class FriendsController  extends AppController {
 
     function showFriends()
     {
-        $barController = new MenuBarController();
+        $friendsRepository = new FriendsRepository();
+        $friends = $friendsRepository->getFriends();
+
+        $result = array();
+        $i = 0;
+        foreach ($friends as $friend)
+        {
+            $result[$friend->getID()]['ID'] = $friend->getID();
+            $result[$friend->getID()]['name'] = $friend->getName();
+            $result[$friend->getID()]['user_img'] = $friend->getUserImg();
+            $result[$friend->getID()]['user_record'] = $friend->getUserRecord();
+            $result[$friend->getID()]['description'] = $friend->getDescription();
+            $i++;
+        }
+        header('Content-type: application/json');
+        http_response_code(200);
+
+        echo $result ? json_encode($result) : '';
+    }
+
+    function sendMessage()
+    {
         $friendsRepository = new FriendsRepository();
 
         $friends = $friendsRepository->getFriends();
@@ -31,9 +52,12 @@ class FriendsController  extends AppController {
                     }
                 }
             }
-            $barController->barController();
         }
-        $this->render('friends', ['friends' => $friends]);
+
+        //dodac nazwe zespolu do friend
+
+        $this->render('friends');
+
     }
 
 }

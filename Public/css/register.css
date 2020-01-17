@@ -23,6 +23,7 @@
 .register_form {
     width: 100%;
     height: 100%;
+
 }
 
 .register_form > input {
@@ -40,7 +41,7 @@
     position: relative;
     background: #02020282 0% 0% no-repeat padding-box;
     border: 5px solid #FFFFFF;
-    margin-top: 30px;
+    margin-top: 10px;
     height: 15%;
     font-weight: bold;
     letter-spacing: 1px;

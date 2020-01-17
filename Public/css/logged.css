@@ -110,19 +110,35 @@ body {
     margin-right: 30px;
 }
 
-.drop_down_content > form {
+.drop_down_content > div {
     display: flex;
     flex-direction: column;
     width: 70%;
     margin-left: 30%;
     margin-top: 5%;
     height: 90%;
+    text-align: center;
+    background-color: black;
 
 }
 
-.drop_down_content > form > button {
+.drop_down_content > div > a {
     height: 90%;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 1px;
     min-width: 200px;
+    margin-top: 5px;
+    text-decoration: none;
+    background-color: #707070;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    opacity: 80%;
 }
 
 

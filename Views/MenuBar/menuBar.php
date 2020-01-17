@@ -5,11 +5,8 @@
     <div class="right_upper_container">
         <div class="name_photo_menu">
             <?php
-            if(isset($user))
-            {
-                echo '<div class="nickname">'.$user->getName()."</div>".
-                    "<img src=/Public/uploads/user_img/" .$user->getUserImg().">";
-            }
+                echo '<div class="nickname">'.$_SESSION['name']."</div>".
+                    "<img src=/Public/uploads/user_img/" .$_SESSION['user_img'].">";
             ?>
             <div class="menu">
                 <button id="menu_button" onclick="showMenu()"><i class="fa fa-bars"></i></button>
@@ -17,13 +14,13 @@
         </div>
     </div>
     <div class="drop_down_content" id="drop_down_content">
-        <form class="menu_form" action="?page=board" method="POST">
-            <button name="mail_post" type="submit">Poczta</button>
-            <button name="my_account" type="submit">Mój profil</button> <!--Bedzie szukaj, ale jak bedziesz mial to nie mozesz dolaczyc-->
-            <button name="my_band" type="submit">Mój zespół</button>
-            <button name="friends" type="submit">Znajomi</button>
-            <button name="find_band" type="submit">Szukaj zespołu</button>
-            <button name="logout" type="submit">Wyloguj</button>
-        </form>
+        <div>
+            <a type="submit" href="?page=mail_post">Poczta</a>
+            <a type="submit" href="?page=board">Mój profil</a> <!--Bedzie szukaj, ale jak bedziesz mial to nie mozesz dolaczyc-->
+            <a type="submit" href="?page=user_band">Mój zespół</a>
+            <a type="submit" href="?page=friends">Znajomi</a>
+            <a type="submit" href="?page=find_band">Szukaj zespołu</a>
+            <a type="submit" href="?page=logout">Wyloguj</a>
+        </div>
     </div>
 </div>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/Public/css/edit_data.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!--    <script src="/Public/scripts/getFriends.js"></script>-->
 </head>
 <body>
 <script>
@@ -29,31 +30,60 @@
 
     function showFriend(id_user)
     {
+        const apiUrl = "http://localhost:8001";
+        const $list = $('.user_information');
+        $.ajax({
+            url : apiUrl + '/?page=get_friends',
+            dataType : 'json'
+        }) .done((res) => {
+            el = res[id_user];
+            $list.empty();
+            var img_path = '../../Public/uploads/user_img/' + el.user_img;
+            var record_path = '../../Public/uploads/records/' + el.user_record;
+            //$('#name').html(el.name);
+            // $('#band_name').html(el.name);
+            // $('#description_content').html(el.description);
+            // $('#send_message').attr('name', id_user);
+                    $list.append(`
+                    <button class="exit_button" type="button" onclick="hideFriend()"><img src="/Public/img/exit_icon.png"></button>
+                <div class="upper_informations">
+                <div class="band">
+                <div class="band_photo" id="band_photo">
+                <img id="band_photo_src" src="${img_path}">
+                </div>
+                <span id="band_name">${el.name}</span>
+                </div>
+                <div class="photo_and_name">
+                <div class="main_photo">
+                <img id="main_photo_src" src="${img_path}">
+                </div>
+                <div class="name" >
+                <span id="name">${el.name}</span>
+                </div>
+                </div>
+                </div>
+                <div class="description">
+                <div class="description_content">
+                <span id="description_content">${el.description}</span>
+                </div>
+                </div>
+                <div class="bottom_informations">
+                <div class="record" id="my_record">
+                <audio id="my_record"  controls>
+                <source id="record_src" src="${record_path}" type="audio/mp3">;
+            </audio>
+                </div>
+                <div class="send_message">
+                <button name="send_message_button" id="" onclick="showMessageForm()">Napisz wiadomość</button>
+                </div>
+                </div>
+                    `);
+                $('#send_message').attr('name', id_user);
+                });
         var element = document.getElementById("user_information");
         element.style.display = "flex";
         var element2 = document.getElementById("message");
         element2.style.display = "none";
-        // $('#main_photo_src').attr('src','../../Public/uploads/user_img/nobody_img.jpg');
-        // console.log(id_user);
-        $.getJSON( "friends.json", function( data ) {
-            var items = [];
-            $.each( data, function( key, val ) {
-                if(val.ID === id_user)
-                {
-                    var img_path = '../../Public/uploads/user_img/' + val.user_img;
-                    $('#main_photo_src').attr('src', img_path);
-
-                    var record_path = '../../Public/uploads/records/' + val.user_record;
-                    //nie dziala
-                    $('#record_src').attr('src', record_path);
-
-                    $('#name').html(val.name);
-                    $('#band_name').html(val.name);
-                    $('#description_content').html(val.description);
-                    $('#send_message').attr('name', id_user);
-                }
-            });
-        });
 
     }
 
@@ -74,7 +104,29 @@
     {
         var element = document.getElementById("message");
         element.style.display = "none";
-        showFriend();
+        //showFriend();
+    }
+
+
+    window.onload = function getFriends()
+    {
+        const apiUrl = "http://localhost:8001";
+        const $list = $('.friends_list');
+        $.ajax({
+            url : apiUrl + '/?page=get_friends',
+            dataType : 'json'
+        }) .done(function( data ) {
+                $list.empty();
+                $.each( data, function( key, val )
+                {
+                    $list.append(`
+                    <div class="friend">
+                    <button type="button" class="friend_button" id="${val.ID}" onclick="showFriend(this.id)">
+                        <img src=/Public/uploads/user_img/${val.user_img}></button>
+                    <p>${val.name}</p>
+                    </div>`);
+                });
+             });
     }
 </script>
 <div class="container">
@@ -103,63 +155,18 @@
     </div>
 
     <div class="user_information" id="user_information" style="display: none; z-index: 1;">
-        <button class="exit_button" type="button" onclick="hideFriend()"><img src="/Public/img/exit_icon.png"></button>
-        <div class="upper_informations">
-            <div class="band">
-                <div class="band_photo" id="band_photo">
-                    <img src="../../Public/uploads/user_img/www.YTS.LT.jpg">
-                </div>
-                <span id="band_name"></span>
-            </div>
-            <div class="photo_and_name">
-                <div class="main_photo">
-                    <img id="main_photo_src">
-                </div>
-                <div class="name" >
-                    <span id="name"></span>
-                </div>
-            </div>
-        </div>
-        <div class="description">
-            <div>Opis</div>
-            <div class="description_content">
-                <span id="description_content"></span>
-            </div>
-        </div>
-        <div class="bottom_informations">
-            <div class="song_title">Can't stop</div>
-            <div class="record" id="my_record">
-                <audio id="my_record"  controls>
-                    <source id="record_src" src="../../Public/uploads/records/punch%20(online-audio-converter.com).wav" type="audio/mp3">;
-                </audio>
-            </div>
-            <div class="send_message">
-                <button name="send_message_button" id="" onclick="showMessageForm()">Napisz wiadomość</button>
-            </div>
-        </div>
+<!--        showFriend()-->
     </div>
 
     <div class="friends_container">
         <div class="friends_list">
-            <form method="post">
-<!--        Poprawic wyswietlanie, bo sie rozjezdza-->
-            <?php
-            if(isset($friends)){
-                foreach($friends as $friend):
-                    echo '<div class="friend">'.
-                        '<button type="button" class="friend_button" id="'.$friend->getID().'" onclick="showFriend(this.id)"/>'.
-                        "<img src=/Public/uploads/user_img/" .$friend->getUserImg().">".'</button>'.
-                        '<p>'.$friend->getName().'</p>'.
-                        '</div>';
-                endforeach;
-            }
-            ?>
-            </form>
+            <!--Reszte wyswietla funkcja    -->
         </div>
     </div>
 </div>
 <script>
-    if ( window.history.replaceState ) {
+    if ( window.history.replaceState )
+    {
         window.history.replaceState( null, null, window.location.href );
     }
 </script>

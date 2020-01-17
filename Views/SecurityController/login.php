@@ -19,7 +19,13 @@
         <button type="submit" onclick="showRegisterForm()">ZAREJESTRUJ SIĘ</button>
     </div>
     <div class="register_div" id="register_form">
-        <button class="exit_button" type="button" onclick="closeRegisterForm()"><img src="/Public/img/exit_icon.png"></button>
+            <button class="exit_button" type="button" onclick="closeRegisterForm()"><img src="/Public/img/exit_icon.png"></button>
+            <?php
+            if(isset($register_posts))
+            {
+                echo '<p style="margin: 0; font-size: 50%; color: darkred">'.$register_posts[0].'</p>';
+            }
+            ?>
         <form class="register_form" action="?page=login" method="POST">
             <p>Login</p>
             <input name="login" type="text" placeholder="login">
@@ -47,8 +53,14 @@
         <form class="login_form" action="?page=login" method="POST">
             <div class="login_input">
                 <input name="email" type="text" placeholder="email@email.com">
-                <input name="password" type="text" placeholder="........">
+                <input name="password" type="password" placeholder="........">
             </div>
+                <?php
+                if(isset($login_posts))
+                {
+                    echo '<p style="margin: 0; font-size: 70%; color: darkred"">'.$login_posts[0].'</p>';
+                }
+                ?>
             <button name="login_button">ZALOGUJ SIĘ</button>
         </form>
     </div>

@@ -27,38 +27,35 @@
     <?php include(dirname(__DIR__).'/MenuBar/menuBar.php'); ?>
     <!-- Dodac funkcje odejdz z zespolu -->
     <div class="band">
-        <div>RedHotChiliPeppers</div>
-        <div class="logo_description">
-            <div class="band_logo">
-                <?php
-                if(isset($band))
-                {
-                    echo  "<img src=/Public/uploads/user_img/" .$band->getBandImg().">";
-                }
-                ?>
-            </div>
-            <div class="description">
-                <?php
-                if(isset($band))
-                {
-                    echo "<div>".$band->getBandDescription()."</div>";
-                }
-                ?>
-            </div>
-        </div>
-        <div class="members">
-            <?php
-            if(isset($band))
-            {
-                foreach($band->getMembers() as $member):
-                    echo '<div class="member">'.
-                            "<img src=/Public/uploads/user_img/" .$member->getUserImg().">".
-                            '<div>'.$member->getName().'</div>'.
-                        '</div>';
-                endforeach;
-            }
-            ?>
-        </div>
+        <?php
+        if(isset($band) && isset($_SESSION['band_id'])) //nie zapomniec zmienic
+        {
+            echo  "<div>".$band->getBandName()."</div>".
+                  '<div class="logo_description">'.
+                      '<div class="band_logo">'.
+                          "<img src=/Public/uploads/user_img/" .$band->getBandImg().">".
+                        '</div>'.
+                      '<div class="description">'.
+                         "<div>".$band->getBandDescription()."</div>".
+                      '</div>'.
+                  '</div>'.
+                  '<div class="members">';
+                     foreach($band->getMembers() as $member):
+                         echo '<div class="member">'.
+                             "<img src=/Public/uploads/user_img/" .$member->getUserImg().">".
+                             '<div>'.$member->getName().'</div>'.
+                             '</div>';
+                     endforeach;
+                    echo '</div>';
+        }
+        else
+            echo '<div class = "band_buttons">'.
+                '<button name="new_band">Stwórz zespół</button>'.
+                 '<form method="POST" >'.
+                    '<button type="submit" name="find_band">Znajdź zespół</button>'.
+                 '</form>'.
+                    '</div>';
+        ?>
     </div>
 </div>
 </body>

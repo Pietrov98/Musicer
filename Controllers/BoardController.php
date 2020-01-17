@@ -7,7 +7,6 @@ class BoardController extends AppController
 {
     public function editData()
     {
-        $barController = new MenuBarController();
         if ($this->isPost())
         {
             if (isset($_POST['save_changes']))
@@ -31,7 +30,6 @@ class BoardController extends AppController
                 //dodac kontrole wielkosci pliku i dlugosci nazwy
             }
 
-            $barController->barController();
         }
         $userRepository = new UserRepository();
         $user = $userRepository->getUserID($_SESSION['id']);

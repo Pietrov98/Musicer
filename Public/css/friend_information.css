@@ -20,6 +20,7 @@
 
 .message {
     z-index: 1;
+    position: fixed;
     display: none;
     flex-direction: column;
     text-align: center;

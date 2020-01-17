@@ -37,12 +37,24 @@ class Routing
             ],
             'friends' => [
                 'controller' => 'FriendsController',
+                'action' => 'sendMessage'
+            ],
+            'get_friends' => [
+                'controller' => 'FriendsController',
                 'action' => 'showFriends'
             ],
             "mail_post" => [
                 'controller' => 'PostController',
                 'action' => "acceptInvitation"
-            ]
+            ],
+            "received_messages" => [
+                'controller' => 'PostController',
+                'action' => "getReceivedMessages"
+            ],
+            "sent_messages" => [
+                'controller' => 'PostController',
+                'action' => "getSentMessages"
+            ],
         ];
     }
 

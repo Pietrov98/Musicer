@@ -7,12 +7,10 @@ require_once 'Repository/UserRepository.php';
 
 class MessageRepository extends Repository
 {
-    public function getMessages(): array
+    public function getReceivedMessages(): array
     {
         $result = [];
         $userID = $_SESSION['id'];
-        //var_dump($userID);
-        //SELECT m.content, m.date, u.name FROM Message m, User u WHERE u.ID = m.id_recipient
         $stmt = $this->database->connect()->prepare("
             SELECT m.content, m.date, m.id_sender FROM Message m WHERE m.id_recipient = $userID
         ");
@@ -25,6 +23,27 @@ class MessageRepository extends Repository
                 $message['content'],
                 $message['date'],
                 $sender
+            );
+        }
+        return $result;
+    }
+
+    public function getSentMessages(): array
+    {
+        $result = [];
+        $userID = $_SESSION['id'];
+        $stmt = $this->database->connect()->prepare("
+            SELECT m.content, m.date, m.id_recipient FROM Message m WHERE m.id_sender = $userID
+        ");
+        $stmt->execute();
+        $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $userRepository = new UserRepository();
+        foreach ($messages as $message) {
+            $recipient = $userRepository->getUserID($message['id_recipient'])->getName();
+            $result[] = new Message(
+                $message['content'],
+                $message['date'],
+                $recipient
             );
         }
         return $result;
