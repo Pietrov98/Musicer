@@ -8,7 +8,31 @@ require_once 'Repository/BandRepository.php';
 
 class BandController extends AppController {
 
-    public function bandOptions()
+    public function leaveBand()
+    {
+        $bandRepository = new BandRepository();
+        if ($this->isPost())
+        {
+            if(isset($_POST['leave_band']))
+            {
+                var_dump("dzial");
+                $bandRepository->leaveBand();
+            }
+        }
+
+        $userRepository = new UserRepository();
+        $user = $userRepository->getUserID($_SESSION['id']);
+        if($user->getBandID() != null)
+        {
+            $_SESSION["band_id"] = $user->getBandID();
+            $band = $bandRepository->getBand();
+            $this->render('user_band', ['band' => $band]);
+        }
+        else
+            $this->render('user_band');
+    }
+
+    public function foundBand()
     {
         $bandRepository = new BandRepository();
         if ($this->isPost())
@@ -27,11 +51,6 @@ class BandController extends AppController {
                     $bandRepository->createBand($new_band);
                     //$band = $bandRepository->getBand();
                 }
-            }
-            else if(isset($_POST['leave_band']))
-            {
-                var_dump("dzial");
-                $bandRepository->leaveBand();
             }
         }
         $userRepository = new UserRepository();

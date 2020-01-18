@@ -1,5 +1,7 @@
 <?php
 require_once 'EndRegisterController.php';
+require_once 'Repository/UserRepository.php';
+require_once 'Models/User.php';
 
 class EndRegisterController extends AppController {
 
@@ -24,6 +26,11 @@ class EndRegisterController extends AppController {
                 $fill_data = new UserRepository();
                 $fill_data->fillData($description, $photo_name, $record_name);
                 $url = "http://$_SERVER[HTTP_HOST]/";
+
+                $userRepository = new UserRepository();
+                $user = $userRepository->getUserID($_SESSION['id']);
+                $_SESSION["user_img"] = $user->getUserImg();
+                $_SESSION["name"] = $user->getName();
                 header("Location: {$url}?page=board");
                 //dodac kontrole wielkosci pliku i dlugosci nazwy
 

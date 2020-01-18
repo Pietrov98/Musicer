@@ -1,7 +1,8 @@
 <?php
 
 require_once 'AppController.php';
-require_once 'MenuBarController.php';
+require_once 'Models/User.php';
+require_once 'Repository/UserRepository.php';
 
 class BoardController extends AppController
 {
@@ -25,6 +26,12 @@ class BoardController extends AppController
                 move_uploaded_file($file_tem_loc_record, $file_store_record);
                 $fill_data = new UserRepository();
                 $fill_data->fillData($description, $photo_name, $record_name);
+
+                $userRepository = new UserRepository();
+                $user = $userRepository->getUserID($_SESSION['id']);
+                $_SESSION["user_img"] = $user->getUserImg();
+                $_SESSION["name"] = $user->getName();
+
                 $url = "http://$_SERVER[HTTP_HOST]/";
                 header("Location: {$url}?page=board");
                 //dodac kontrole wielkosci pliku i dlugosci nazwy

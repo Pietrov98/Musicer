@@ -93,7 +93,7 @@
                              '</div>';
                      endforeach;
                     echo '</div>'.
-                        '<form class="leave_band_form" action="?page=user_band" method="POST">'.
+                        '<form class="leave_band_form" action="?page=leave_band" method="POST">'.
                             '<button name="leave_band">Opuść zespół'.
                             '</button>'.
                         '</form>';

@@ -13,8 +13,8 @@ class User
 
     public function __construct(string $email = "",
                                 string $password = "",
-                                string $ID = "",
                                 string $name = "",
+                                string $ID = "",
                                 string $user_img = "",
                                 string $description = "",
                                 string $user_record = "",

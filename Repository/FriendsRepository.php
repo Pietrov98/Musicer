@@ -22,8 +22,8 @@ class FriendsRepository extends Repository {
             $result[] = new User(
                 "",
                 "",
-                $user['ID'],
                 $user['name'],
+                $user['ID'],
                 $user['user_img'],
                 $user['description'],
                 $user['user_record']);

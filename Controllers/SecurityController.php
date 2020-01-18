@@ -10,8 +10,9 @@ require_once 'Repository/UserRepository.php';
 class SecurityController extends AppController
 {
 
-    public function registerUser($userRepository)
+    public function registerUser()
     {
+        $userRepository = new UserRepository();
         if (isset($_POST['register_button']))
         {
             $email = $_POST['email'];
@@ -48,11 +49,6 @@ class SecurityController extends AppController
                 $this->render('login', ['register_posts' => ['Za krótkie hasło']]);
                // return;
             }
-//            if(!preg_match("/^[a-zA-Z ]*$/",$login) || $login == "") //dodac cyfry
-//            {
-//
-//                return;
-//            }
             else if (preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/',$login) || $login == "")
             {
                 //echo "Taki login nie może istnieć!";
@@ -62,13 +58,12 @@ class SecurityController extends AppController
             $userRepository->addUser($new_user);
             $user = $userRepository->getUser($email);
             $_SESSION["id"] = $user->getID();
-            $_SESSION["user_img"] = $user->getUserImg();
-            $_SESSION["name"] = $user->getName();
 
 //            //tutaj dodac jakąś weryfikacje e-maila i dlugosc hasla czy cos
             $url = "http://$_SERVER[HTTP_HOST]/";
             header("Location: {$url}?page=end_register");
         }
+        $this->render('login');
     }
 
     public function logout()
@@ -107,10 +102,10 @@ class SecurityController extends AppController
                 header("Location: {$url}?page=board");
                 return;
             }
-            else
-             {
-                $this->registerUser($userRepository);
-             }
+//            else
+//             {
+//                $this->registerUser($userRepository);
+//             }
 
         }
         $this->render('login');

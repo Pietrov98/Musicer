@@ -22,8 +22,8 @@ class UserRepository extends Repository {
         $new_user =  new User(
             $user['email'],
             $user['password'],
-            $user["ID"],
             $user['name'],
+            $user["ID"],
             $user['user_img'],
             $user['description'],
             $user['user_record'],
@@ -49,8 +49,8 @@ class UserRepository extends Repository {
         $new_user =  new User(
             $user['email'],
             $user['password'],
-            $user["ID"],
             $user['name'],
+            $user["ID"],
             $user['user_img'],
             $user['description'],
             $user['user_record'],
@@ -75,8 +75,8 @@ class UserRepository extends Repository {
         $new_user =  new User(
             $user['email'],
             $user['password'],
-            $user["ID"],
             $user['name'],
+            $user["ID"],
             $user['user_img'],
             $user['description'],
             $user['user_record'],
@@ -110,6 +110,7 @@ class UserRepository extends Repository {
 
     public function addUser(User $user)
     {
+        var_dump($user->getName());
         //sprawdzic nazwy w User
         $query = "INSERT INTO User (email, name, password, user_img, user_record, description, id_band) VALUES (?, ?, ?, ?, ?, ?, ?)";
         //$query = "INSERT INTO User VALUES (null,'$email', '$name', '$password')";
@@ -120,7 +121,7 @@ class UserRepository extends Repository {
                         $user->getUserImg(),
                         $user->getUserRecord(),
                         $user->getDescription(),
-                        '0']);
+                        NULL]);
     }
 
     private function checkData($value, $getFunction)

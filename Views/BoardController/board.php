@@ -83,10 +83,19 @@
     <div class="user_information" id="user_information">
         <div class="upper_informations">
             <div class="band">
-                <div class="band_photo">
-                    <img src="/Public/img/image-5.png">
-                </div>
-                RedHotChiliPeppers<br/>
+<!--                <div class="band_photo">-->
+<!--                    <img src="/Public/img/image-5.png">-->
+<!--                </div>-->
+<!--                RedHotChiliPeppers<br/>-->
+                <?php
+                if(isset($user))
+                {
+                    echo '<div class="band_photo">'.
+                       "<img src=/Public/uploads/user_img/" .$user->getUserImg().">".
+                        '</div>'.
+                        $user->getName().'<br/>';
+                }
+                ?>
             </div>
             <div class="photo_and_name">
                 <div class="main_photo">

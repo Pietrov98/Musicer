@@ -26,15 +26,15 @@
                 echo '<p style="margin: 0; font-size: 50%; color: darkred">'.$register_posts[0].'</p>';
             }
             ?>
-        <form class="register_form" action="?page=login" method="POST">
+        <form class="register_form" action="?page=register" method="POST">
             <p>Login</p>
             <input name="login" type="text" placeholder="login">
             <p>E-mail</p>
             <input name="email" type="text" placeholder="email@email.com">
             <p>Hasło</p>
-            <input name="password1" type="text" placeholder="......">
+            <input name="password1" type="password">
             <p>Powtórz hasło</p>
-            <input name="password2" type="text" placeholder="......">
+            <input name="password2" type="password">
 <!--            <input name="user_photo" id="user_photo" type="file" accept="image/*">-->
             <button class="button_next" name="register_button">ZAREJESTRUJ SIĘ</button>
         </form>

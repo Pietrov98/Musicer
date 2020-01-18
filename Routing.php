@@ -23,6 +23,10 @@ class Routing
                 'controller' => 'SecurityController',
                 'action' => 'login'
             ],
+            'register' => [
+                'controller' => 'SecurityController',
+                'action' => 'registerUser'
+            ],
             'end_register' => [
                 'controller' => 'EndRegisterController',
                 'action' => 'fillData'
@@ -33,7 +37,11 @@ class Routing
             ],
             'user_band' => [
                 'controller' => 'BandController',
-                'action' => 'bandOptions'
+                'action' => 'foundBand'
+            ],
+            'leave_band' => [
+                'controller' => 'BandController',
+                'action' => 'leaveBand'
             ],
             'friends' => [
                 'controller' => 'FriendsController',
