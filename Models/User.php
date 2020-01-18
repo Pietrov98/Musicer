@@ -18,7 +18,7 @@ class User
                                 string $user_img = "",
                                 string $description = "",
                                 string $user_record = "",
-                                string $band_id ="")
+                                $band_id ="")
     {
         $this->email = $email;
         $this->password = $password;
@@ -76,5 +76,6 @@ class User
     {
         return $this->band_id;
     }
+
 
 }

@@ -4,7 +4,7 @@
 }
 
 .band {
-    position: fixed;
+    position: absolute;
     font: Bold 30px/40px Malgun Gothic;
     top: 120px;
     height: 80%;
@@ -18,7 +18,6 @@
 }
 
 .logo_description {
-    position: relative;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -29,7 +28,6 @@
 
 .description {
     font-size: 50%;
-    position: relative;
     width: 50%;
     height: 90%;
     margin-right: 10%;
@@ -108,6 +106,104 @@
 .band_buttons > form > button {
     height: 100%;
     width: 100%;
+}
+
+.band_create {
+    display: none;
+    position: absolute;
+    width: 50%;
+    margin-left: 24.2%;
+    height: 95%;
+    margin-top: 1%;
+    background-color: white;
+    border:5px solid black;
+    border-radius: 1em;
+}
+
+.band_create > form {
+    width: 100%;
+    height: 90%;
+}
+
+.band_create > form > p {
+    font-size: 0.6em;
+    margin: 0;
+}
+
+.band_create > form > input {
+    text-align: center;
+    background: #0606064D 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+    border-radius: 17px;
+    width: 70%;
+    height: 15%;
+}
+
+.exit_button {
+    width: 25px;
+    height: 25px;
+    border: none;
+    margin-left: 90%;
+    background-color: transparent;
+}
+
+.exit_button > img {
+    width: 150%;
+}
+
+.description_content {
+    position: relative;
+    width: 80%;
+    left: 7.6%;
+    height: 30%;
+    overflow-wrap: break-word
+}
+
+.description_content > textarea {
+    position: relative;
+    height: 80%;
+    width: 100%;
+    font-size: 40%;
+    margin-top: 5%;
+    background: #0606064D 0% 0% no-repeat padding-box;
+    border: 1px solid #FFF8F8;
+    text-align: left;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: Malgun Gothic;
+    font-weight: bold;
+}
+
+.save_changes {
+    width: 60%;
+    margin-left: 20%;
+    height: 10%;
+}
+
+.save_changes > button {
+    width: 100%;
+    height: 60%;
+    min-height: 70px;
+    outline: none;
+    background: #707070;
+    color:white;
+    font-size: 100%;
+    border: none;
+}
+
+.save_changes > button:hover {
+    cursor: pointer;
+    opacity: 80%;
+}
+
+.user_input {
+    height: 20%;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.user_input > div {
+    font-size: 0.6em;
 }
 
 /*@media screen and (max-width: 1000px)*/

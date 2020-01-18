@@ -49,13 +49,7 @@ class PostController extends AppController {
 
     function acceptInvitation()
     {
-        //$messageRepository = new MessageRepository();
-        //$messages = $messageRepository->getMessages();
-        //$this->render('mail_post', ['messages' => $messages]);
-
+        //sortowanie wiadomosci
         $this->render('mail_post');
-//        $userRepository = new UserRepository();
-//        $user = $userRepository->getUserID($_SESSION['id']);
-//        $this->render('friends', ['user' => $user]);
     }
 }
