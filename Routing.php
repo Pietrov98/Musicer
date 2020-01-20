@@ -6,6 +6,7 @@ require_once 'Controllers/EndRegisterController.php';
 require_once 'Controllers/BandController.php';
 require_once 'Controllers/FriendsController.php';
 require_once 'Controllers/PostController.php';
+require_once 'Controllers/BandFinderController.php';
 
 
 class Routing
@@ -43,6 +44,10 @@ class Routing
                 'controller' => 'BandController',
                 'action' => 'leaveBand'
             ],
+            'find_member' => [
+                'controller' => 'BandController',
+                'action' => 'findMember'
+            ],
             'friends' => [
                 'controller' => 'FriendsController',
                 'action' => 'sendMessage'
@@ -55,6 +60,14 @@ class Routing
                 'controller' => 'PostController',
                 'action' => "acceptInvitation"
             ],
+            "get_message_friends" => [
+                'controller' => 'PostController',
+                'action' => "getFriends"
+            ],
+            "send_message" => [
+                'controller' => 'PostController',
+                'action' => "sendMessage"
+            ],
             "received_messages" => [
                 'controller' => 'PostController',
                 'action' => "getReceivedMessages"
@@ -63,6 +76,17 @@ class Routing
                 'controller' => 'PostController',
                 'action' => "getSentMessages"
             ],
+            "get_applications" => [
+                'controller' => 'PostController',
+                'action' => "getApplications"],
+            "find_band" => [
+                'controller' => 'BandFinderController',
+                'action' => "sendApplication"],
+
+            "get_bands" => [
+                'controller' => 'BandFinderController',
+                'action' => "getBands"],
+
         ];
     }
 

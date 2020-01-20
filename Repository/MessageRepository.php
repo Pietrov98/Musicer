@@ -12,7 +12,7 @@ class MessageRepository extends Repository
         $result = [];
         $userID = $_SESSION['id'];
         $stmt = $this->database->connect()->prepare("
-            SELECT m.content, m.date, m.id_sender FROM Message m WHERE m.id_recipient = $userID
+            SELECT m.content, m.date, m.id_sender FROM Message m WHERE m.id_recipient = $userID ORDER BY date DESC
         ");
         $stmt->execute();
         $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -33,7 +33,7 @@ class MessageRepository extends Repository
         $result = [];
         $userID = $_SESSION['id'];
         $stmt = $this->database->connect()->prepare("
-            SELECT m.content, m.date, m.id_recipient FROM Message m WHERE m.id_sender = $userID
+            SELECT m.content, m.date, m.id_recipient FROM Message m WHERE m.id_sender = $userID ORDER BY date DESC
         ");
         $stmt->execute();
         $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);

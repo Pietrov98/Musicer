@@ -10,6 +10,9 @@ class User
     private $user_img;
     private $user_record;
     private $band_id;
+    private $role;
+
+    //dodac nazwe i obrazek zespolu
 
     public function __construct(string $email = "",
                                 string $password = "",
@@ -18,7 +21,8 @@ class User
                                 string $user_img = "",
                                 string $description = "",
                                 string $user_record = "",
-                                $band_id ="")
+                                $band_id ="",
+                                $role = "")
     {
         $this->email = $email;
         $this->password = $password;
@@ -35,6 +39,7 @@ class User
         $this->description = $description;
         $this->user_record = $user_record;
         $this->band_id = $band_id;
+        $this->role = $role;
     }
 
     public function getEmail(): string
@@ -75,6 +80,11 @@ class User
     public function getBandID()
     {
         return $this->band_id;
+    }
+
+    public function getRole()
+    {
+        return $this->role;
     }
 
 

@@ -49,6 +49,19 @@
         find_band.style.display = "block";
     }
 
+    function showMemberForm()
+    {
+        var create_band = document.getElementById("find_member");
+        create_band.style.display = "block";
+    }
+
+    function hideMemberForm()
+    {
+        var create_band = document.getElementById("find_member");
+        create_band.style.display = "none";
+    }
+
+
 </script>
 <div class="container">
     <!-- tutaj trzeba powyrzucać na zewnątrz i inny kontener dac zamiast right_upper -->
@@ -73,6 +86,20 @@
                 </div>
             </form>
         </div>
+
+        <div class = "find_member" id = "find_member">
+            <button class="exit_button" type="button" onclick="hideMemberForm()"><img src="/Public/img/exit_icon.png"></button>
+            <form class="find_member_form" action="?page=find_member" method="POST">
+                <p>Napisz kogo szukacie (rodzaj instrumentu, doświadczenie, cechy charakteru)</p>
+                <div class="description_content">
+                    <textarea name="member_description" maxlength="250"> </textarea>
+                </div>
+                <div class="save_changes">
+                    <button  name="find_member" type="submit">SZUKAJ CZŁONKA</button>
+                </div>
+            </form>
+        </div>
+
         <?php
         if(isset($band) && isset($_SESSION['band_id'])) //nie zapomniec zmienic
         {
@@ -92,11 +119,17 @@
                              '<div>'.$member->getName().'</div>'.
                              '</div>';
                      endforeach;
-                    echo '</div>'.
-                        '<form class="leave_band_form" action="?page=leave_band" method="POST">'.
+                    echo '</div>';
+                        if($_SESSION['role'] == "founder")
+                        {
+                            echo '<button name="find_member" onclick="showMemberForm()">Znajdz czlonka zespolu'.
+                            '</button>';
+                        }
+                       echo '<form class="leave_band_form" action="?page=leave_band" method="POST">'.
                             '<button name="leave_band">Opuść zespół'.
                             '</button>'.
                         '</form>';
+
 
         }
         else

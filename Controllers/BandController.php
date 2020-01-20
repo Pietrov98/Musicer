@@ -4,6 +4,7 @@ require_once "BandController.php";
 require_once "MenuBarController.php";
 require_once 'Repository/UserRepository.php';
 require_once 'Repository/BandRepository.php';
+require_once __DIR__.'/../Models/Band.php';
 
 
 class BandController extends AppController {
@@ -15,7 +16,6 @@ class BandController extends AppController {
         {
             if(isset($_POST['leave_band']))
             {
-                var_dump("dzial");
                 $bandRepository->leaveBand();
             }
         }
@@ -32,7 +32,34 @@ class BandController extends AppController {
             $this->render('user_band');
     }
 
-    public function foundBand()
+    public function findMember()
+    {
+        $bandRepository = new BandRepository();
+        if ($this->isPost())
+        {
+            if(isset($_POST['find_member']))
+            {
+                if(isset($_POST['member_description']))
+                {
+                    $bandRepository->findMember($_POST['member_description']);
+                }
+
+            }
+        }
+
+        $userRepository = new UserRepository();
+        $user = $userRepository->getUserID($_SESSION['id']);
+        if($user->getBandID() != null)
+        {
+            $_SESSION["band_id"] = $user->getBandID();
+            $band = $bandRepository->getBand();
+            $this->render('user_band', ['band' => $band]);
+        }
+        else
+            $this->render('user_band');
+    }
+
+    public function foundBand() //zaloz
     {
         $bandRepository = new BandRepository();
         if ($this->isPost())
@@ -58,6 +85,9 @@ class BandController extends AppController {
         if($user->getBandID() != null)
         {
             $_SESSION["band_id"] = $user->getBandID();
+            $band = $bandRepository->getBand();
+            $_SESSION['band_name'] = $band->getBandName();
+            $_SESSION['band_img'] = $band->getBandImg();
             $band = $bandRepository->getBand();
             $this->render('user_band', ['band' => $band]);
         }

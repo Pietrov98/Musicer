@@ -3,6 +3,9 @@
 require_once 'AppController.php';
 require_once 'Models/User.php';
 require_once 'Repository/UserRepository.php';
+require_once 'Repository/BandRepository.php';
+require_once __DIR__.'/../Models/Band.php';
+
 
 //require_once __DIR__ . '/../Models/User.php';
 //require_once __DIR__.'/../Repository/UserRepository.php';
@@ -77,6 +80,7 @@ class SecurityController extends AppController
     {
         //$user = new User('johnny@pk.edu.pl', 'admin', 'Johnny', 'Snow');
         $userRepository = new UserRepository();
+        $bandRepository = new BandRepository();
         if ($this->isPost())
         {
             if(isset($_POST['login_button']))
@@ -98,6 +102,17 @@ class SecurityController extends AppController
                 $_SESSION["id"] = $user->getID();
                 $_SESSION["user_img"] = $user->getUserImg();
                 $_SESSION["name"] = $user->getName();
+                $_SESSION["role"] = $user->getRole();
+
+                if($user->getBandID() != null && $user->getBandID() != "")
+                {
+                    $_SESSION["band_id"] = $user->getBandID();
+                    $band = $bandRepository->getBand();
+                    $_SESSION["band_name"] = $band->getBandName();
+                    $_SESSION["band_img"] = $band->getBandImg();
+                }
+
+
                 $url = "http://$_SERVER[HTTP_HOST]/";
                 header("Location: {$url}?page=board");
                 return;

@@ -31,6 +31,12 @@ class EndRegisterController extends AppController {
                 $user = $userRepository->getUserID($_SESSION['id']);
                 $_SESSION["user_img"] = $user->getUserImg();
                 $_SESSION["name"] = $user->getName();
+
+//                $_SESSION["band_id"] = "";
+//                $_SESSION["band_name"] = "";
+//                $_SESSION["band_img"] = "";
+
+                $url = "http://$_SERVER[HTTP_HOST]/";
                 header("Location: {$url}?page=board");
                 //dodac kontrole wielkosci pliku i dlugosci nazwy
 

@@ -39,6 +39,7 @@
             el = res[id_user];
             $list.empty();
             var img_path = '../../Public/uploads/user_img/' + el.user_img;
+            var band_img_path = '../../Public/uploads/band_img/' + el.band_img;
             var record_path = '../../Public/uploads/records/' + el.user_record;
             //$('#name').html(el.name);
             // $('#band_name').html(el.name);
@@ -49,9 +50,9 @@
                 <div class="upper_informations">
                 <div class="band">
                 <div class="band_photo" id="band_photo">
-                <img id="band_photo_src" src="${img_path}">
+                <img id="band_photo_src" src="${band_img_path}">
                 </div>
-                <span id="band_name">${el.name}</span>
+                <span id="band_name">${el.band_name}</span>
                 </div>
                 <div class="photo_and_name">
                 <div class="main_photo">

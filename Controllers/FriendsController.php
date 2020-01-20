@@ -3,7 +3,9 @@
 require_once "FriendsController.php";
 require_once 'Repository/FriendsRepository.php';
 require_once 'Repository/MessageRepository.php';
+require_once 'Repository/BandRepository.php';
 require_once 'MenuBarController.php';
+require_once 'Models/Band.php';
 
 
 class FriendsController  extends AppController {
@@ -12,17 +14,20 @@ class FriendsController  extends AppController {
     {
         $friendsRepository = new FriendsRepository();
         $friends = $friendsRepository->getFriends();
+        $bandRepository = new BandRepository();
 
         $result = array();
-        $i = 0;
         foreach ($friends as $friend)
         {
+            $band = $bandRepository->getSpecificBand($friend->getID());
             $result[$friend->getID()]['ID'] = $friend->getID();
             $result[$friend->getID()]['name'] = $friend->getName();
             $result[$friend->getID()]['user_img'] = $friend->getUserImg();
             $result[$friend->getID()]['user_record'] = $friend->getUserRecord();
             $result[$friend->getID()]['description'] = $friend->getDescription();
-            $i++;
+            $result[$friend->getID()]['band_name'] = $band->getBandName();
+            $result[$friend->getID()]['band_img'] = $band->getBandImg();
+
         }
         header('Content-type: application/json');
         http_response_code(200);
@@ -32,11 +37,11 @@ class FriendsController  extends AppController {
 
     function sendMessage()
     {
-        $friendsRepository = new FriendsRepository();
 
-        $friends = $friendsRepository->getFriends();
         if ($this->isPost())
         {
+            $friendsRepository = new FriendsRepository();
+            $friends = $friendsRepository->getFriends();
             foreach ($friends as $friend)
             {
                 if (isset($_POST[$friend->getID()]))
@@ -48,7 +53,7 @@ class FriendsController  extends AppController {
                         $message = new MessageRepository();
                         $message->newMessage($recipientID, $content);
                         $_SESSION['$recipientID'] = "";
-                        $_SESSION['message_content'] = "";
+                       $_SESSION['message_content'] = "";
                     }
                 }
             }

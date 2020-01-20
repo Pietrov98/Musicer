@@ -91,9 +91,9 @@
                 if(isset($user))
                 {
                     echo '<div class="band_photo">'.
-                       "<img src=/Public/uploads/user_img/" .$user->getUserImg().">".
+                       "<img src=/Public/uploads/band_img/" .$_SESSION['band_img'].">".
                         '</div>'.
-                        $user->getName().'<br/>';
+                        $_SESSION['band_name'].'<br/>';
                 }
                 ?>
             </div>

@@ -27,7 +27,8 @@ class UserRepository extends Repository {
             $user['user_img'],
             $user['description'],
             $user['user_record'],
-            $user['id_band']
+            $user['id_band'],
+            $user['role']
         );
         return $new_user;
 
@@ -110,7 +111,6 @@ class UserRepository extends Repository {
 
     public function addUser(User $user)
     {
-        var_dump($user->getName());
         //sprawdzic nazwy w User
         $query = "INSERT INTO User (email, name, password, user_img, user_record, description, id_band) VALUES (?, ?, ?, ?, ?, ?, ?)";
         //$query = "INSERT INTO User VALUES (null,'$email', '$name', '$password')";
