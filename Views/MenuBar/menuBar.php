@@ -19,7 +19,13 @@
             <a type="submit" href="?page=board">Mój profil</a> <!--Bedzie szukaj, ale jak bedziesz mial to nie mozesz dolaczyc-->
             <a type="submit" href="?page=user_band">Mój zespół</a>
             <a type="submit" href="?page=friends">Znajomi</a>
-            <a type="submit" href="?page=find_band">Szukaj zespołu</a>
+            <?php
+                if($_SESSION['role'] != 'founder' && $_SESSION['role'] != 'czlonek')
+                {
+                    echo '<a type="submit" href="?page=find_band">Szukaj zespołu</a>';
+                }
+            ?>
+
             <a type="submit" href="?page=logout">Wyloguj</a>
         </div>
     </div>

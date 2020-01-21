@@ -146,21 +146,6 @@ button:hover {
     z-index: 0;
 }
 
-/*.exit_button {*/
-/*    position: relative;*/
-/*    width: 35px;*/
-/*    height: 35px;*/
-/*    left: 90%;*/
-/*    top: 2%;*/
-/*    border: none;*/
-/*    background-color: transparent;*/
-/*}*/
-
-/*.exit_button > img {*/
-/*    position: relative;*/
-/*    width: 150%;*/
-/*}*/
-
 .user_photo > img {
     width: 200px;
     height: 200px;
@@ -232,19 +217,37 @@ button:hover {
     overflow: auto;
 }
 
-.message > .exit_button {
+.exit_button_mess{
     position: relative;
     width: 35px;
     height: 35px;
-    left: 40%;
     top: 2%;
     border: none;
     background-color: transparent;
+    left: 40%;
 }
 
-.exit_button > img {
+.exit_button_mess > img {
     position: relative;
-    width: 150%;
+    width: 35px;
+    left: 90%;
+    background-color: transparent;
+}
+
+.exit_button_app{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    top: 2%;
+    border: none;
+    background-color: transparent;
+    left: 85%;
+}
+
+.exit_button_app > img {
+    position: relative;
+    width: 35px;
+    background-color: transparent;
 }
 
 .message_form {
@@ -379,5 +382,13 @@ button:hover {
     .send_application {
         width: 70%;
         margin-left: 16.4%;
+    }
+
+    .exit_button_mess{
+        left: 35%;
+    }
+
+    .exit_button_app{
+        left: 77%;
     }
 }

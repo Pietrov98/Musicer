@@ -1,5 +1,5 @@
 .container {
-    background-image: url('my_band_background.png');
+    background-image: url('/Public/img/my_band_background.png');
     text-align: center;
 }
 
@@ -130,7 +130,6 @@
     text-underline: none;
     font: Bold 30px/40px 'Alata', sans-serif;
     color: white;
-
 }
 
 .band_buttons > form > a:visited {
@@ -230,6 +229,7 @@
     height: 20%;
     width: 100%;
     margin-top: 5%;
+    font-family: 'Alata', sans-serif;
 }
 
 .user_input > div {

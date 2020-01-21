@@ -29,7 +29,7 @@
     <div class="application_information" id="application_information" style="display: none; z-index: 1;">
     </div>
     <div class="message" id="message">
-        <button class="exit_button" type="button" onclick="hideMessageForm()"><img src="/Public/img/exit_icon.png"></button>
+        <button class="exit_button_mess" type="button" onclick="hideMessageForm()"><img src="/Public/img/exit_icon.png"></button>
         <form class="message_form" action="?page=send_message" method="POST">
             <div class="friends_list">
                 <select name="friend_select" class="friend_select" id="friend_select">

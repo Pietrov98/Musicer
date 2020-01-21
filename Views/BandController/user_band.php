@@ -68,7 +68,7 @@
                     echo '</div>';
                         if($_SESSION['role'] == "founder")
                         {
-                            echo '<button name="find_member" class="find_member_button"  onclick="showMemberForm()">Znajdż czlonka zespolu'.
+                            echo '<button name="find_member" class="find_member_button"  onclick="showMemberForm()">Znajdż członka zespołu'.
                             '</button>';
                         }
                        echo '<form class="leave_band_form" action="?page=leave_band" method="POST">'.

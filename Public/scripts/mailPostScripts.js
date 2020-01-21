@@ -117,7 +117,7 @@ function showApplication(id_application) {
                 var user_img_path = '../../Public/uploads/user_img/' + el.user_img;
                 var user_record_path = '../../Public/uploads/records/' + el.user_record;
                 $list.append(`
-                            <button class="exit_button" type="button" onclick="hideApplication()"><img src="/Public/img/exit_icon.png"></button>
+                            <button class="exit_button_app" type="button" onclick="hideApplication()"><img src="/Public/img/exit_icon.png"></button>
                     <div class="upper_informations">
                         <div class="user_photo" id="user_photo">
                             <img id="user_photo_src" src="${user_img_path}">
