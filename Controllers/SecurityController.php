@@ -26,38 +26,39 @@ class SecurityController extends AppController
             {
                 //echo "Do adresu e-mail jest już przypisane konto!";
                 $this->render('login', ['register_posts' => ['Do adresu e-mail jest już przypisane konto']]);
-                //return;
+                return;
             }
             else if($userRepository->checkLogin($login))
             {
                 //echo "Login został już wykorzystany!";
                 $this->render('login', ['register_posts' => ['Login został już wykorzystany']]);
-               // return;
+                return;
             }
-            else if(!filter_var($email, FILTER_VALIDATE_EMAIL))
+            else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && strpos($email, '@') !== false)
             {
                 //echo "Niepoprawny adres e-mail!";
                 $this->render('login', ['register_posts' => ['Niepoprawny adres e-mail']]);
-               // return;
+                return;
             }
             else if($password2 != $password1)
             {
                 //echo "Hasła nie mogą się różnić!";
                 $this->render('login', ['register_posts' => ['Hasła nie mogą się różnić']]);
-                //return;
+                return;
             }
             else if(strlen($password1) < 6)
             {
                 //echo "Za krótkie hasło!";
                 $this->render('login', ['register_posts' => ['Za krótkie hasło']]);
-               // return;
+               return;
             }
             else if (preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/',$login) || $login == "")
             {
                 //echo "Taki login nie może istnieć!";
                 $this->render('login', ['register_posts' => ['Taki login nie może istnieć']]);
+                return;
             }
-            $new_user = new User($email, $password1, $login);
+            $new_user = new User($email, password_hash($password1, PASSWORD_DEFAULT), $login);
             $userRepository->addUser($new_user);
             $user = $userRepository->getUser($email);
             $_SESSION["id"] = $user->getID();
@@ -94,7 +95,7 @@ class SecurityController extends AppController
                     return;
                 }
 
-                else if ($user->getPassword() !== $password) {
+                else if (password_verify($password, $user->getPassword()) !== true) {
                     $this->render('login', ['login_posts' => ['Błędne hasło!']]);
                     return;
                 }

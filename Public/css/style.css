@@ -14,7 +14,7 @@ body {
     justify-content: center;
     height: inherit;
     align-items: center;
-    background-image: url('main_background.png');
+    background-image: url('/Public/img/main_background.png');
     overflow: auto;
 }
 
@@ -65,7 +65,7 @@ body {
     background: #FFFFFFCC 0% 0%;
     border: 1px solid #707070;
     outline: none;
-    z-index: 1;
+    z-index: 0;
 }
 
 .footage {
@@ -136,16 +136,19 @@ button:hover {
     }
 
     .register > button {
+
         position: absolute;
         text-align: center;
         margin-top: 35%;
-        left: 25%;
+        left: 5%;
         top: 15%;
         height: 10%;
-        width: 50%;
+        width: 90%;
+        visibility: visible;
     }
 
     .login > button {
+        position: absolute;
         text-align: center;
         margin-top: 35%;
         left: 25%;

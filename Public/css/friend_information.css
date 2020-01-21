@@ -28,7 +28,7 @@
     height: 55%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
-    font: Bold 20px/27px Malgun Gothic;
+    font: Bold 20px/27px 'Alata', sans-serif;
     letter-spacing: 0;
     color: #000000;
     overflow: auto;
@@ -64,7 +64,7 @@
     text-align: left;
     border-radius: 5px;
     padding: 10px;
-    font-family: Malgun Gothic;
+    font-family: 'Alata', sans-serif;
     font-weight: bold;
 }
 
@@ -85,4 +85,11 @@
     color:white;
     font-size: 100%;
     border: none;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .message_content > textarea {
+        width: 70%;
+    }
 }

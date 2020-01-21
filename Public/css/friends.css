@@ -11,12 +11,13 @@
     background: #707070;
     top: 150px;
     z-index: 0;
+    font-family: 'Alata', sans-serif;
 }
 
 .friends_title {
     position: relative;
     font-size: 2em;
-    font-family: Malgun Gothic;
+    font-family: 'Alata', sans-serif;
     width: 50%;
     height: 100%;
     margin-left: 20px;
@@ -86,4 +87,58 @@ button:hover {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+}
+
+@media screen and (max-width: 1000px)  {
+
+    .friend {
+        width: 25%;
+    }
+    .user_information {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 500px;
+        height: 75%;
+        top: 25%;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #707070;
+        font: Bold 20px/27px 'Alata', sans-serif;
+        letter-spacing: 0;
+        color: #000000;
+        overflow: auto;
+        z-index: 0;
+    }
+
+
+    .band {
+        background: 50% 50% no-repeat;
+        height: 100%;
+        width: 40%;
+        margin-top: 5%;
+        margin-left: 10%;
+    }
+
+    .photo_and_name {
+        background: 50% 50% no-repeat;
+        width: 40%;
+        margin-top: 5%;
+        margin-left: 0%;
+    }
+
+    .description_content {
+        width: 70%;
+        margin-left: 12.8%;
+    }
+
+    .edit_description_content {
+        width: 85%;
+    }
+
+    .exit_button {
+        left: 78%;
+    }
+
+
 }

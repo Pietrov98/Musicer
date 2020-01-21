@@ -10,6 +10,7 @@
     background: #FFFFFF96 0% 0% no-repeat padding-box;
     text-align: left;
     overflow: auto;
+    font-family: 'Alata', sans-serif;
 }
 
 .upper_post_container{
@@ -43,7 +44,7 @@
 }
 
 h3 {
-    font: Bold 40px/54px Malgun Gothic;
+    font: Bold 40px/54px 'Alata', sans-serif;
     color: #000000;
     line-height: 0;
     font-size: 30px;
@@ -87,7 +88,10 @@ button:hover {
     flex-direction: row;
     width: 100%;
     height: 100px;
-    border-bottom: 1px solid black;
+}
+
+.mail:hover {
+    opacity: 60%;
 }
 
 .mail_title_button {
@@ -108,7 +112,6 @@ button:hover {
 .sender {
     height: 100%;
     width: 15%;
-    border-right: 1px solid black;
     padding: 10px;
     text-align: center;
     font-weight: bold;
@@ -116,8 +119,14 @@ button:hover {
 
 .date {
     text-align: center;
-    width: 13%;
+    width: 10%;
     font-weight: bold;
+    padding: 10px;
+}
+
+.mail_content {
+    padding: 10px;
+    width: 50%;
 }
 
 .application_information {
@@ -130,27 +139,27 @@ button:hover {
     top: 10%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
-    font: Bold 20px/27px Malgun Gothic;
+    font: Bold 20px/27px 'Alata', sans-serif;
     letter-spacing: 0;
     color: #000000;
     overflow: auto;
     z-index: 0;
 }
 
-.exit_button {
-    position: relative;
-    width: 35px;
-    height: 35px;
-    left: 90%;
-    top: 2%;
-    border: none;
-    background-color: transparent;
-}
+/*.exit_button {*/
+/*    position: relative;*/
+/*    width: 35px;*/
+/*    height: 35px;*/
+/*    left: 90%;*/
+/*    top: 2%;*/
+/*    border: none;*/
+/*    background-color: transparent;*/
+/*}*/
 
-.exit_button > img {
-    position: relative;
-    width: 150%;
-}
+/*.exit_button > img {*/
+/*    position: relative;*/
+/*    width: 150%;*/
+/*}*/
 
 .user_photo > img {
     width: 200px;
@@ -217,17 +226,17 @@ button:hover {
     height: 55%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
-    font: Bold 20px/27px Malgun Gothic;
+    font: Bold 20px/27px 'Alata', sans-serif;
     letter-spacing: 0;
     color: #000000;
     overflow: auto;
 }
 
-.exit_button {
+.message > .exit_button {
     position: relative;
     width: 35px;
     height: 35px;
-    left: 90%;
+    left: 40%;
     top: 2%;
     border: none;
     background-color: transparent;
@@ -268,7 +277,7 @@ button:hover {
     text-align: left;
     border-radius: 5px;
     padding: 10px;
-    font-family: Malgun Gothic;
+    font-family: 'Alata', sans-serif;
     font-weight: bold;
 }
 
@@ -297,4 +306,78 @@ button:hover {
     width: 50%;
     background-color: #707070;
     color: white;
+}
+
+.showApplication > button {
+    outline: none;
+    background: #707070;
+    color:white;
+    font-size: 100%;
+    border: none;
+    height: 50%;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+    .message
+    {
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .exit_button {
+        left: 42%;
+    }
+
+    .friend_select
+    {
+        width: 75%;
+        max-width: 350px;
+    }
+
+    .options_container {
+        margin-left: 0.3%;
+        width: 100%;
+    }
+
+    .options_container >  button {
+        width: 25%;
+        margin-right: 1%;
+    }
+
+    .application_information > .exit_button {
+        left: 80% ;
+    }
+
+    .application_information {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 500px;
+        height: 75%;
+        top: 25%;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #707070;
+        /*font: Bold 20px/27px Malgun Gothic;*/
+        font-family: 'Alata', sans-serif;
+        letter-spacing: 0;
+        color: #000000;
+        overflow: auto;
+        z-index: 0;
+    }
+
+    .description {
+        margin-top: 4%;
+    }
+
+    .description_content {
+        width: 70%;
+        margin-left: 12.7%;
+    }
+
+    .send_application {
+        width: 70%;
+        margin-left: 16.4%;
+    }
 }

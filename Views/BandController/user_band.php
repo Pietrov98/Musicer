@@ -8,61 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<script>
-    function showMenu()
-    {
-        var menu = document.getElementById("drop_down_content");
-        if(menu.style.display === "block")
-        {
-            menu.style.display = "none";
-        }
-        else if((menu.style.display === "none") || !menu.style.display)
-        {
-            menu.style.display = "block";
-        }
-    }
-
-    function showBandForm()
-    {
-        console.log('dziala');
-        var create_band = document.getElementById("band_create");
-        create_band.style.display = "block";
-
-        var create_button = document.getElementById("create_button");
-        create_button.style.display = "none";
-
-        var find_band = document.getElementById("find_button");
-        find_band.style.display = "none";
-
-    }
-
-    function hideBandForm()
-    {
-        console.log('dziala');
-        var create_band = document.getElementById("band_create");
-        create_band.style.display = "none";
-
-        var create_button = document.getElementById("create_button");
-        create_button.style.display = "block";
-
-        var find_band = document.getElementById("find_button");
-        find_band.style.display = "block";
-    }
-
-    function showMemberForm()
-    {
-        var create_band = document.getElementById("find_member");
-        create_band.style.display = "block";
-    }
-
-    function hideMemberForm()
-    {
-        var create_band = document.getElementById("find_member");
-        create_band.style.display = "none";
-    }
-
-
-</script>
+<script src="/Public/scripts/bandScripts.js"></script>
 <div class="container">
     <!-- tutaj trzeba powyrzucać na zewnątrz i inny kontener dac zamiast right_upper -->
     <?php include(dirname(__DIR__).'/MenuBar/menuBar.php'); ?>
@@ -122,11 +68,11 @@
                     echo '</div>';
                         if($_SESSION['role'] == "founder")
                         {
-                            echo '<button name="find_member" onclick="showMemberForm()">Znajdz czlonka zespolu'.
+                            echo '<button name="find_member" class="find_member_button"  onclick="showMemberForm()">Znajdż czlonka zespolu'.
                             '</button>';
                         }
                        echo '<form class="leave_band_form" action="?page=leave_band" method="POST">'.
-                            '<button name="leave_band">Opuść zespół'.
+                            '<button name="leave_band" class="leave_band_button">Opuść zespół'.
                             '</button>'.
                         '</form>';
 
@@ -136,7 +82,9 @@
             echo '<div class = "band_buttons">'.
                 '<button id="create_button" onclick="showBandForm()">Załóż zespół</button>'.
                  '<form method="POST" >'.
+                 '<div>'.
                     '<a type="submit" id="find_button" href="?page=find_band">Znajdź zespół</a>'.
+                '</div>'.
                  '</form>'.
                     '</div>';
         ?>

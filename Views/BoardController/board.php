@@ -16,42 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<script>
-    function showEditForm()
-    {
-        var element = document.getElementById("edit_data");
-        element.style.display = "flex";
-        var element2 = document.getElementById("user_information");
-        element2.style.display = "none";
-    }
-
-    function  closeEditForm()
-    {
-        var element = document.getElementById("edit_data");
-        element.style.display = "none";
-        var element2 = document.getElementById("user_information");
-        element2.style.display = "flex";
-    }
-
-    function startMusic()
-    {
-        var audio = document.getElementById("my_record");
-        document.getElementById("my_record").innerHTML=("Seeking: " + x.seeking);
-    }
-
-    function showMenu()
-    {
-        var menu = document.getElementById("drop_down_content");
-        if(menu.style.display === "block")
-        {
-            menu.style.display = "none";
-        }
-        else if((menu.style.display === "none") || !menu.style.display)
-        {
-            menu.style.display = "block";
-        }
-    }
-</script>
+<script src="/Public/scripts/boardScripts.js"></script>
 <audio id="my_record">
     <source src="/Public/audio/bensound-buddy.mp3" type="audio/mpeg">
 </audio>
@@ -83,10 +48,6 @@
     <div class="user_information" id="user_information">
         <div class="upper_informations">
             <div class="band">
-<!--                <div class="band_photo">-->
-<!--                    <img src="/Public/img/image-5.png">-->
-<!--                </div>-->
-<!--                RedHotChiliPeppers<br/>-->
                 <?php
                 if(isset($user))
                 {

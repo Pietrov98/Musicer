@@ -9,14 +9,12 @@
     <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <script src="/Public/scripts/login_functions.js"></script>
 </head>
-<!--jquery string content string includes-->
-
 <div class="container" id="container">
     <div class="motto">
         Twórz Udostępniaj Szukaj
     </div>
     <div class="register" id="register">
-        <button type="submit" onclick="showRegisterForm()">ZAREJESTRUJ SIĘ</button>
+        <button class="register_button1" type="submit" onclick="showRegisterForm()">ZAREJESTRUJ SIĘ</button>
     </div>
     <div class="register_div" id="register_form">
             <button class="exit_button" type="button" onclick="closeRegisterForm()"><img src="/Public/img/exit_icon.png"></button>
@@ -35,7 +33,6 @@
             <input name="password1" type="password">
             <p>Powtórz hasło</p>
             <input name="password2" type="password">
-<!--            <input name="user_photo" id="user_photo" type="file" accept="image/*">-->
             <button class="button_next" name="register_button">ZAREJESTRUJ SIĘ</button>
         </form>
     </div>

@@ -16,6 +16,7 @@
     text-align: center;
     overflow: auto;
     z-index: 1;
+    align-content: center;
 }
 
 .logo_description {
@@ -30,8 +31,9 @@
 .description {
     font-size: 50%;
     width: 50%;
+    max-width: 300px;
     height: 90%;
-    margin-right: 10%;
+    margin-right: 5%;
     background: #0606064D 0% 0% no-repeat padding-box;
     border: 1px solid #FFF8F8;
     text-align: left;
@@ -87,7 +89,7 @@
     height: 60%;
     width: 80%;
     text-align: center;
-    margin-top: 17%;
+    margin-top: 15%;
 }
 
 .band_buttons > button {
@@ -95,6 +97,14 @@
     width: 70%;
     margin-top: 5%;
     margin-left: 27%;
+    font: Bold 30px/40px 'Alata', sans-serif;
+    background-color: #707070;
+    color: white;
+}
+
+.band_buttons > button:hover {
+    opacity: 80%;
+    cursor: pointer;
 }
 
 .band_buttons > form {
@@ -104,16 +114,35 @@
     margin-left: 27%;
 }
 
-.band_buttons > form > button {
+.band_buttons > form > div {
     height: 100%;
     width: 100%;
+    background-color: #707070;
+
+}
+
+.band_buttons > form > div:hover {
+    opacity: 80%;
+}
+
+.band_buttons > form > div > a {
+    text-decoration: none;
+    text-underline: none;
+    font: Bold 30px/40px 'Alata', sans-serif;
+    color: white;
+
+}
+
+.band_buttons > form > a:visited {
+    text-decoration: none;
 }
 
 .band_create {
     display: none;
     position: absolute;
     width: 50%;
-    margin-left: 24.2%;
+    max-width: 420px;
+    margin-left: 25.7%;
     height: 95%;
     margin-top: 1%;
     background-color: white;
@@ -171,7 +200,7 @@
     text-align: left;
     border-radius: 5px;
     padding: 10px;
-    font-family: Malgun Gothic;
+    font-family: 'Alata', sans-serif;
     font-weight: bold;
 }
 
@@ -265,28 +294,90 @@
     text-align: left;
     border-radius: 5px;
     padding: 10px;
-    font-family: Malgun Gothic;
+    font-family: 'Alata', sans-serif;
     font-weight: bold;
-
 }
 
-/*@media screen and (max-width: 1000px)*/
-/*{*/
-/*    .member {*/
-/*        width: 35%;*/
-/*        padding: 20px;*/
-/*    }*/
+.find_member_button {
+    width: 30%;
+    height: 7%;
+    min-height: 30px;
+    outline: none;
+    background: #707070;
+    color:white;
+    font-size: 70%;
+    border: none;
+    margin:0;
+}
 
-/*    .member > span {*/
-/*        font-size: 1.5em;*/
-/*    }*/
+.leave_band_button {
+    width: 30%;
+    height: 7%;
+    min-height: 30px;
+    outline: none;
+    background: #707070;
+    color:white;
+    font-size: 70%;
+    border: none;
+    margin:0;
+}
 
-/*    .band > span {*/
-/*        font-size: 2em;*/
-/*        font-weight: bold;*/
-/*    }*/
+.find_member_button:hover {
+    opacity: 80%;
+}
 
-/*    .band_logo > img {*/
-/*        width: 40%;*/
-/*    }*/
-/*}*/
+.leave_band_button:hover {
+    opacity: 80%;
+}
+
+@media screen and (max-width: 1000px)
+{
+    .band {
+        width: 95%;
+        min-width: 400px;
+    }
+
+    .band_create {
+        margin-left: 14%;
+        margin-right: 24%;
+        width: 70%;
+        max-width: 1000px;
+    }
+
+    .logo_description {
+        flex-direction: column;
+        height: 50%;
+        align-content: center;
+        margin-top: 1%;
+    }
+
+    .band_logo {
+        width: 100%;
+    }
+
+    .description {
+        width: 90%;
+        max-width: none;
+        margin-left: 2%;
+    }
+
+    .description > div {
+        width: 100%;
+    }
+
+    .member {
+        width: 25%;
+    }
+
+    .member > img
+    {
+        width: 100%;
+        height: 100%;
+    }
+
+    .find_member {
+        width: 90%;
+        margin-left: 3.6%;
+        height: 80%;
+    }
+}
